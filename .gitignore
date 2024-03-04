@@ -10,3 +10,9 @@
 /Training/MASUI/Sample/Game/*.pdb
 /Training/MASUI/Sample/Game/*.exp
 /Training/MASUI/Sample/Game/*.lib
+/Training/MATUSITA/Sample/Sample/Game/*.exp
+/Training/MATUSITA/Sample/Sample/Game/*.lib
+/Training/MATUSITA/Sample/Sample/Game/*.pdb
+/Training/MATUSITA/Sample/Sample/Project/.vs
+/Training/MATUSITA/Sample/Sample/Project/Debug
+/Training/MATUSITA/Sample/Sample/Project/GameProject/*.user
