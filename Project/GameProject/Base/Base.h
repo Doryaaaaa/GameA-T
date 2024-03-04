@@ -26,13 +26,13 @@ public:
     //オブジェクトの種類
     int m_type;
     //座標データ
-    CVector2D m_pos;
+    CVector3D m_pos;
     //過去の位置
-    CVector2D m_pos_old;
+    CVector3D m_pos_old;
     //半径
     float m_rad;
     //移動ベクトル
-    CVector2D m_vec;
+    CVector3D m_vec;
 
     //矩形
     CRect   m_rect;
@@ -40,7 +40,7 @@ public:
     bool m_kill;
     static std::list<Base*> m_list;
     //スクロール値
-    static CVector2D m_scroll;
+    static CVector3D m_scroll;
 
 public:
     /// <summary>
@@ -125,7 +125,7 @@ public:
     /// </summary>
     /// <param name="pos">キャラクターなどの座標</param>
     /// <returns>画面上での位置</returns>
-    static CVector2D GetScreenPos(const CVector2D& pos);
+    static CVector3D GetScreenPos(const CVector3D& pos);
 
     /// <summary>
     /// 矩形同士の判定

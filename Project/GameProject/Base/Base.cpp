@@ -1,7 +1,7 @@
 #include "Base.h"
 std::list<Base*> Base::m_list;
-CVector2D Base::m_scroll(0, 0);
-Base::Base(int type) : m_type(type),m_pos(0, 0),m_rad(0), m_kill(false)
+CVector3D Base::m_scroll(0,0,0);
+Base::Base(int type) : m_type(type),m_pos(0,0,0),m_rad(0), m_kill(false)
 {
 
 }
@@ -23,7 +23,7 @@ void Base::Collision(Base* b)
 }
 bool Base::CollisionCircle(Base* b1, Base* b2)
 {
-    CVector2D v = b1->m_pos - b2->m_pos;
+    CVector3D v = b1->m_pos - b2->m_pos;
     float l = v.Length();
     if (l < b1->m_rad + b2->m_rad) {
         return true;
@@ -134,9 +134,9 @@ std::list<Base*> Base::FindObjects(int type)
     return ret;
 }
 
-CVector2D Base::GetScreenPos(const CVector2D& pos)
+CVector3D Base::GetScreenPos(const CVector3D& pos)
 {
-    return pos - m_scroll;
+    return CVector3D(pos.x - m_scroll.x, pos.y - m_scroll.y, pos.z - m_scroll.z);
 }
 void Base::DrawRect()
 {
@@ -146,10 +146,10 @@ void Base::DrawRect()
         m_pos.y + m_rect.m_top,
         m_pos.x + m_rect.m_right,
         m_pos.y + m_rect.m_bottom);
-    Utility::DrawQuad(
-        CVector2D(rect.m_left, rect.m_top) - m_scroll,
-        CVector2D(rect.m_width, rect.m_height),
-        CVector4D(1, 0, 0, 0.5f));
+    //Utility::DrawQuad(
+        //CVector2D(rect.m_left, rect.m_top) - m_scroll,
+        //CVector2D(rect.m_width, rect.m_height),
+        //CVector4D(1, 0, 0, 0.5f));
 }
 
 
