@@ -25,8 +25,8 @@ struct TexAnimData {
 class CImage : public CResource {
 public:
 	CTexture* mp_texture;
-	CVector2D	m_pos;		//位置(pixel)
-	CVector2D	m_center;	//中心位置(pixel)
+	CVector3D	m_pos;		//位置(pixel)
+	CVector3D	m_center;	//中心位置(pixel)
 	CVector2D	m_size;	//サイズ(pixel)
 	CRect		m_src_rect;	//表示元矩形
 	float		m_ang;		//回転値
@@ -80,19 +80,19 @@ public:
 		@param	y		[in] 縦位置
 		@retval	無し
 	**/
-	void SetPos(float x,float y) {
-		m_pos.x = x; m_pos.y = y;
+	void SetPos(float x,float y,float z) {
+		m_pos.x = x; m_pos.y = y; m_pos.z = z;
 	}
 	/*!
 		@brief	表示位置を設定する
 		@param	p		[in] 座標
 		@retval	無し
 	**/
-	void SetPos(const CVector2D& p) {
+	void SetPos(const CVector3D& p) {
 		m_pos = p;
 	}
 
-	CVector2D* GetPosPointer()
+	CVector3D* GetPosPointer()
 	{
 		return &m_pos;
 	}
