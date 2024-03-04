@@ -4,3 +4,9 @@
 /Game/GameProject.pdb
 /Project/Debug
 /Project/.vs
+/Training/MASUI/Sample/Project/.vs
+/Training/MASUI/Sample/Project/Debug
+/Training/MASUI/Sample/Project/GameProject/*.user
+/Training/MASUI/Sample/Game/*.pdb
+/Training/MASUI/Sample/Game/*.exp
+/Training/MASUI/Sample/Game/*.lib
