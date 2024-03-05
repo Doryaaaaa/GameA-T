@@ -1,22 +1,32 @@
 #include "Player.h"
 
-Player::Player(const CVector2D& pos) :Base(eType_Player) {
+Player::Player(const CVector3D& pos) :Base(eType_Player) {
     m_img = COPY_RESOURCE("Player", CImage);
     m_pos = pos;
     //m_img.ChangeAnimation(0);
-  //  m_img.SetCenter(32 / 2, 32 / 2);
 }
+
 void Player::Update() {
     //m_img.UpdateAnimation();
+    //移動スピード
     const int move_speed = 4;
-    if (HOLD(CInput::eRight)) {
-        m_pos.x += move_speed;
+    //ジャンプ力
+    const float jump_pow = 15;
+    //上移動
+    if (HOLD(CInput::eUp)) {
+        m_pos.y -= move_speed;
     }
-    if (HOLD(CInput::eLeft)) {
-        m_pos.x -= move_speed;
+    //下移動
+    if (HOLD(CInput::eDown)) {
+        m_pos.y += move_speed;
     }
+    //スペースでジャンプ
+    /*if (m_is_ground && PUSH(CInput::eButton5)) {
+        m_vec.y = -jump_pow;
+        m_is_ground = false;
+    }*/
 }
 void Player::Draw() {
-    m_img.SetPos(GetScreenPos(m_pos));
+   // m_img.SetPos(GetScreenPos(m_pos));
     m_img.Draw();
 }

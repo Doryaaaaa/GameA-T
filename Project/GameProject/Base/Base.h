@@ -8,6 +8,7 @@ enum {
     eType_AreaChange,
     eType_Player,
     eType_Enemy,
+    eType_Portion1,
     eType_Bullet,
     eType_Goal,
     eType_Player_Attack,

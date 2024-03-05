@@ -73,7 +73,7 @@ void Init(void)
 	//ƒQ[ƒ€‹N“®‚Éˆê“x‚¾‚¯ŒÄ‚Î‚ê‚é
 	//-----------------------------------------------------
 
-	Base::Add(new Player(CVector2D(200, 500)));
+	Base::Add(new Player(CVector3D(0, 0,0)));
 
 
 
