@@ -10,7 +10,6 @@ public:
 		struct {
 			float m_x;
 			float m_y;
-			float m_z;
 			float m_width;
 			float m_height;
 		};

@@ -8,4 +8,5 @@ public:
     void Draw();
 private:
     CImage m_img;
+
 };

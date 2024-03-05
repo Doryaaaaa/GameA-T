@@ -74,7 +74,7 @@ void Init(void)
 	//ƒQ[ƒ€‹N“®‚Éˆê“x‚¾‚¯ŒÄ‚Î‚ê‚é
 	//-----------------------------------------------------
 
-	Base::Add(new Player(CVector3D(0, 0,0)));
+	Base::Add(new Player(CVector3D(1200, 500,0)));
 
 	Base::Add(new Enemy());
 

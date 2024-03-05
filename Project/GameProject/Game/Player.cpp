@@ -27,6 +27,6 @@ void Player::Update() {
     }*/
 }
 void Player::Draw() {
-   // m_img.SetPos(GetScreenPos(m_pos));
+    m_img.SetPos(GetScreenPos(m_pos));
     m_img.Draw();
 }

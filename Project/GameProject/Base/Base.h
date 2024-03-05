@@ -126,7 +126,7 @@ public:
     /// </summary>
     /// <param name="pos">キャラクターなどの座標</param>
     /// <returns>画面上での位置</returns>
-    static CVector3D GetScreenPos(const CVector3D& pos);
+    static CVector2D GetScreenPos(const CVector3D& pos);
 
     /// <summary>
     /// 矩形同士の判定
