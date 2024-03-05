@@ -1,9 +1,10 @@
 #include "Base/Base.h"
 #include "Game/Player.h"
+#include"Game/Enemy.h"
 //--------------------------------------------
 //グローバル変数領域
 //--------------------------------------------
-
+Enemy* p_enemy = nullptr;
 
 
 
@@ -57,7 +58,7 @@ void Init(void)
 	//-----------------------------------------------------
 	//画像の読み込みと登録　”リソース名”　　　　”ファイル名” , アニメーションデータ , 幅 , 高さ
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png"));
-	//ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 256, 256));
+	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy(仮).png", enemy_anim_data, 500, 500));
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
 	//ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/ForeGround.png"));
@@ -75,8 +76,7 @@ void Init(void)
 
 	Base::Add(new Player(CVector3D(0, 0,0)));
 
-
-
+	Base::Add(new Enemy());
 
 
 
