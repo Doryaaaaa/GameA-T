@@ -1,6 +1,6 @@
 #include "Player.h"
 Player::Player(const CVector2D& pos) :Base(eType_Player) {
-    m_img = COPY_RESOURCE("Player",CImage);
+    m_img = COPY_RESOURCE("Player", CImage);
     m_pos = pos;
     //m_img.ChangeAnimation(0);
   //  m_img.SetCenter(32 / 2, 32 / 2);

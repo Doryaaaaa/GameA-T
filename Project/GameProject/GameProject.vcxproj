@@ -12,12 +12,44 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Base\Base.cpp" />
-    <ClCompile Include="Base\Player.cpp" />
+    <ClCompile Include="Game\Effect.cpp" />
+    <ClCompile Include="Game\Enemy.cpp" />
+    <ClCompile Include="Game\Field.cpp" />
+    <ClCompile Include="Game\EnemyHp.cpp" />
+    <ClCompile Include="Game\Player.cpp" />
+    <ClCompile Include="Game\Portion1.cpp" />
+    <ClCompile Include="Game\Portion2.cpp" />
+    <ClCompile Include="Game\Portion3.cpp" />
+    <ClCompile Include="Game\Result.cpp" />
+    <ClCompile Include="Game\Score.cpp" />
+    <ClCompile Include="Game\Timer.cpp" />
+    <ClCompile Include="Game\Title.cpp" />
+    <ClCompile Include="Game\Trapp1.cpp" />
+    <ClCompile Include="Game\Trapp2.cpp" />
+    <ClCompile Include="Game\Trapp3.cpp" />
+    <ClCompile Include="Game\Trapp4.cpp" />
+    <ClCompile Include="Game\Trapp5.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base\Base.h" />
-    <ClInclude Include="Base\Player.h" />
+    <ClInclude Include="Game\Effect.h" />
+    <ClInclude Include="Game\Enemy.h" />
+    <ClInclude Include="Game\Field.h" />
+    <ClInclude Include="Game\EnemyHp.h" />
+    <ClInclude Include="Game\Player.h" />
+    <ClInclude Include="Game\Portion1.h" />
+    <ClInclude Include="Game\Portion2.h" />
+    <ClInclude Include="Game\Portion3.h" />
+    <ClInclude Include="Game\Result.h" />
+    <ClInclude Include="Game\Score.h" />
+    <ClInclude Include="Game\Timer.h" />
+    <ClInclude Include="Game\Title.h" />
+    <ClInclude Include="Game\Trapp2.h" />
+    <ClInclude Include="Game\Trapp1.h" />
+    <ClInclude Include="Game\Trapp3.h" />
+    <ClInclude Include="Game\Trapp4.h" />
+    <ClInclude Include="Game\Trapp5.h" />
     <ClInclude Include="Global.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
