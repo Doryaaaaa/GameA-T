@@ -2,8 +2,6 @@
 //コンストラクタ
 Player::Player()
 	: m_pos(CVector2D(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.75f))
-	,m_animData(nullptr)
-	,m_img(nullptr)
 	,m_hp(100)
 	{
 	m_pos = CVector2D(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.75f);
@@ -68,7 +66,7 @@ void Player::Update() {
 		m_img->SetFlipH(false);
 		isMove = true;
 	}
-	else if (HOLD(CInput::eUp))
+	if (HOLD(CInput::eUp))
 	{
 		m_pos.y -= 3.0f;
 		m_img->ChangeAnimation(1);

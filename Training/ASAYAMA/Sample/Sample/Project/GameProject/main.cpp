@@ -68,8 +68,8 @@ void Init(void)
 	p_player = new Player();
 
 	p_slimeA = new Slime(0,CVector2D(SCREEN_WIDTH * 0.75f, SCREEN_HEIGHT * 0.8f));
-	p_slimeA = new Slime(1,CVector2D(SCREEN_WIDTH * 0.8f, SCREEN_HEIGHT * 0.6f));
-	p_slimeA = new Slime(2,CVector2D(SCREEN_WIDTH * 0.85f, SCREEN_HEIGHT * 0.9f));
+	p_slimeB = new Slime(1,CVector2D(SCREEN_WIDTH * 0.8f, SCREEN_HEIGHT * 0.6f));
+	p_slimeC = new Slime(2,CVector2D(SCREEN_WIDTH * 0.85f, SCREEN_HEIGHT * 0.9f));
 
 }
 
