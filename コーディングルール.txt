@@ -1,0 +1,58 @@
+■コーディングルール
+・キャメルケース CamelCase camelCase
+　頭文字を大文字にする（CamelCase）→アッパーキャメルケース
+　頭文字を小文字にする（camelCase）→ローワーキャメルケース
+
+・スネークケース snake_case
+　単語と単語の間を「アンダーバー（_）」で繋ぐ命名規則。
+
+・変数名
+　　　　　　　　　キャメル　　　 　スネーク
+　ローカル変数　　playerPos 　　　 player_pos
+　メンバ変数　　　m_playerPos 　　 m_player_pos
+　グローバル変数　g_playerPos 　　 g_player_pos
+　ポインタ　　　　mp_playerModel　 mp_player_model
+
+　1文字の変数名など意味が伝わらない変数名は避ける。
+　×int a = 0;
+　〇for(int i=0; i<5; i++)
+　　{
+　　　for(int j=0; j<3; j++)
+　　　{
+　　　　for(int k=0; k<2; k++)
+　　　　{
+　　　　}
+　　　}
+　　}
+　〇テンポラリ変数
+　　int paramA, paramB;
+　　int t = paramA;
+    paramA = paramB;
+    paramB = t;
+
+・関数名
+　C++では、アッパーキャメルケースが多い印象。
+　DoThat（動詞を先に）
+　GetPos、SetPos
+
+・定数名
+　定数は全て大文字、スネークケースが多い。
+　const float MOVE_SPEED = 5.0f;
+  #define MOVE_SPEED 5.0f
+
+・クラス
+　穴吹だと頭に「C」を付けることが多い。
+　CPlayer、CEnemy、CCharaBase
+
+・構造体
+　頭に「S」とか「ST」を付けることが多い。
+　SCharaStatus、STCharaStatus
+
+・列挙型（enum）
+　型名の頭に「E」を付けることが多い。
+　enum class ECharaType
+  {
+    Player,
+    Enemy,
+    NPC
+  };

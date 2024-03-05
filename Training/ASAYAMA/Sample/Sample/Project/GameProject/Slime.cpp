@@ -2,8 +2,6 @@
 //コンストラクタ
 Slime::Slime(int type, const CVector2D& pos)
    :m_pos(pos)
-   ,m_animData(nullptr)
-   ,m_img(nullptr)
    ,m_hp(100)
    ,m_type(type)
 {
