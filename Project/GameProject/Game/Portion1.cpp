@@ -3,7 +3,7 @@
 Portion1::Portion1(const CVector3D& pos) :Base(eType_Portion1) {
 	m_img= COPY_RESOURCE("Portion1", CImage);
 	m_pos=pos;
-	m_img.SetSize(250,250);
+	m_img.SetSize(500,500);
 	m_rect = CRect(0, 0, 0, 0);
 }
 
