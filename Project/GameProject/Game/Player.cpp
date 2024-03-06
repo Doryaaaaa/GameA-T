@@ -102,12 +102,12 @@ void Player::StateRun() {
 
     //上移動（上キー）
     if (HOLD(CInput::eUp)) {
-        m_pos.y -= move_speed;
+        m_pos.z -= move_speed;
     }
 
     //下移動（下キー）
     if (HOLD(CInput::eDown)) {
-        m_pos.y += move_speed;
+        m_pos.z += move_speed;
     }
     /*
     //攻撃(S)
