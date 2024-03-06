@@ -78,7 +78,7 @@ void Init(void)
 	Base::Add(new Field());
 	Base::Add(new Player(CVector3D(1200, 500,0)));
 
-	Base::Add(new Portion1(CVector3D(1200, 1800, 0)));
+	Base::Add(new Portion1(CVector3D(1200, 2800, 0)));
 	Base::Add(new Enemy());
 
 
