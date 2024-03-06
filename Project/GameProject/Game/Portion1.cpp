@@ -14,5 +14,8 @@ void Portion1::Update()
 
 void Portion1::Drow()
 {
-
+	m_img.SetPos(m_pos.x, m_pos.y);
+	m_img.Draw();
+	//DrawRect();
 }
+
