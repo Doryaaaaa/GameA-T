@@ -4,11 +4,11 @@
 /// </summary>
 enum {
     eType_Field,
+    eType_Portion1,
     eType_Door,
     eType_AreaChange,
     eType_Player,
-    eType_Enemy,
-    eType_Portion1,
+    eType_Enemy,  
     eType_Bullet,
     eType_Goal,
     eType_Player_Attack,

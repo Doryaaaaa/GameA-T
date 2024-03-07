@@ -11,7 +11,7 @@ Player::Player(const CVector3D& pos) :Base(eType_Player) {
     //中心位置設定
     m_img.SetCenter(100, 100);
     //当たり判定
-    m_rect = CRect(-30, -40, 30, 100);
+    m_rect = CRect(-50, -50, 50, 50);
     //通常状態(常に走り)へ
     m_state = eState_Run;
     //着地フラグ
@@ -71,6 +71,7 @@ void Player::Update() {
 void Player::Draw() {
     m_img.SetPos(m_pos.x, m_pos.y);
     m_img.Draw();
+    //DrawRect();
 }
 
 void Player::Collision(Base* b)

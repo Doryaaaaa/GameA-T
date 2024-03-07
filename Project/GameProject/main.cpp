@@ -2,7 +2,7 @@
 #include "Game/Player.h"
 #include"Game/Enemy.h"
 #include"Game/Field.h"
-//--------------------------------------------
+#include "Game/Portion1.h"//--------------------------------------------
 //ƒOƒ[ƒoƒ‹•Ï”—Ìˆæ
 //--------------------------------------------
 Enemy* p_enemy = nullptr;
@@ -69,6 +69,7 @@ void Init(void)
 	//ADD_RESOURCE("Effect_Blood", CImage::CreateImage("Image/Effect_Blood.png", effect_blood_anim_data, 128, 128));
 	//ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
+	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
 
 	//-----------------------------------------------------
 	//‰Šú‰»‚Ì–½—ß‚ğ‘‚­
@@ -77,6 +78,7 @@ void Init(void)
 	Base::Add(new Field());
 	Base::Add(new Player(CVector3D(1200, 500,0)));
 
+	Base::Add(new Portion1(CVector3D(1200, 2800, 0)));
 	Base::Add(new Enemy());
 
 
