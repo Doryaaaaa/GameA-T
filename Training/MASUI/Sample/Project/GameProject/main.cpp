@@ -1,6 +1,7 @@
 #include"Player.h"
 #include"Slime.h"
 #include"TaskManager.h"
+#include"ShadowManager.h"
 
 //--------------------------------------------
 //グローバル変数領域
@@ -56,6 +57,9 @@ void Init(void)
 	//-----------------------------------------------------
 
 	fieldimage = CImage::CreateImage("field.png");
+
+	//影描画クラスの生成
+	new ShadowManager();
 
 	//プレイヤーを生成
 	new Player;
