@@ -1,10 +1,10 @@
 #include"Slime.h"
 //コンストラクタ
 Slime::Slime(int type, const CVector2D& pos)
-   :m_pos(pos)
-   ,m_hp(100)
+   :CharaBase(pos)
    ,m_type(type)
 {
+	m_hp = 100;
 	int frame = 6;
 	m_animData = new TexAnimData[1]
 	{
@@ -31,13 +31,13 @@ Slime::Slime(int type, const CVector2D& pos)
 }
 //デストラクタ
 Slime::~Slime() {
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 1; i++) {
 		delete[]m_animData[i].pData;
 	}
 	delete[]m_animData;
+	//画像データを削除
 	delete m_img;
 }
-//プレイヤー座標取得
 const CVector2D& Slime::GetPos()const {
 	return m_pos;
 }
