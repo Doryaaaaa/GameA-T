@@ -1,30 +1,18 @@
 #include "Player.h"
+#include "Slime.h"
 
 //--------------------------------------------
 //グローバル変数領域
 //--------------------------------------------
 
+// プレイヤーのポインター
 Player* p_player = nullptr;
+// スライムのポインター
+Slime* p_slimeA = nullptr;
+Slime* p_slimeB = nullptr;
+Slime* p_slimeC = nullptr;
 
 CImage* fieldimage = nullptr;
-
-TexAnimData* enemyanimdata = nullptr;
-CImage* enemyimagea = nullptr;
-CVector2D enemyposa = CVector2D(SCREEN_WIDTH * 0.75f, SCREEN_HEIGHT * 0.8f);
-CImage* enemyimageb = nullptr;
-CVector2D enemyposb = CVector2D(SCREEN_WIDTH * 0.8f, SCREEN_HEIGHT * 0.6f);
-CImage* enemyimagec = nullptr;
-CVector2D enemyposc = CVector2D(SCREEN_WIDTH * 0.85f, SCREEN_HEIGHT * 0.9f);
-
-void updateenemies()
-{
-	enemyimagea->SetPos(enemyposa);
-	enemyimagea->UpdateAnimation();
-	enemyimageb->SetPos(enemyposb);
-	enemyimageb->UpdateAnimation();
-	enemyimagec->SetPos(enemyposc);
-	enemyimagec->UpdateAnimation();
-}
 
 void MainLoop(void) {
 	//--------------------------------------------------------------
@@ -33,13 +21,15 @@ void MainLoop(void) {
 	//--------------------------------------------------------------
 
 	p_player->Update();
-	updateenemies();
+	p_slimeA->Update();
+	p_slimeB->Update();
+	p_slimeC->Update();
 
 	fieldimage->Draw();
-	enemyimageb->Draw();
+	p_slimeB->Render();
 	p_player->Render();
-	enemyimagea->Draw();
-	enemyimagec->Draw();
+	p_slimeA->Render();
+	p_slimeC->Render();
 }
 void Init(void)
 {
@@ -80,43 +70,11 @@ void Init(void)
 	// プレイヤーを生成
 	p_player = new Player();
 
-	const int f = 6;
-	enemyanimdata = new TexAnimData[1]
-	{
-		{
-			new TexAnim[4]
-			{
-				{ 0, f}, { 1, f}, { 2, f}, { 3, f},
-			},
-			4
-		},
-	};
-
-	enemyimagea = CImage::CreateImage("slime_a.png");
-	enemyimagea->AttachAnimationData(enemyanimdata, 256.0f, 256.0f);
-	enemyimagea->ChangeAnimation(0);
-	enemyimagea->SetSize(256.0f, 256.0f);
-	enemyimagea->SetCenter(128.0f, 184.0f);
-	enemyimagea->SetPos(enemyposa);
-	enemyimagea->SetFlipH(true);
-
-	enemyimageb = CImage::CreateImage("slime_b.png");
-	enemyimageb->AttachAnimationData(enemyanimdata, 256.0f, 256.0f);
-	enemyimageb->ChangeAnimation(0);
-	enemyimageb->SetSize(256.0f, 256.0f);
-	enemyimageb->SetCenter(128.0f, 184.0f);
-	enemyimageb->SetPos(enemyposb);
-	enemyimageb->SetFlipH(true);
-
-	enemyimagec = CImage::CreateImage("slime_c.png");
-	enemyimagec->AttachAnimationData(enemyanimdata, 256.0f, 256.0f);
-	enemyimagec->ChangeAnimation(0);
-	enemyimagec->SetSize(256.0f, 256.0f);
-	enemyimagec->SetCenter(128.0f, 184.0f);
-	enemyimagec->SetPos(enemyposc);
-	enemyimagec->SetFlipH(true);
+	// スライムを生成
+	p_slimeA = new Slime(0, CVector2D(SCREEN_WIDTH * 0.75f, SCREEN_HEIGHT * 0.8f));
+	p_slimeB = new Slime(1, CVector2D(SCREEN_WIDTH * 0.8f, SCREEN_HEIGHT * 0.6f));
+	p_slimeC = new Slime(2, CVector2D(SCREEN_WIDTH * 0.85f, SCREEN_HEIGHT * 0.9f));
 }
-
 
 void Release()
 {
