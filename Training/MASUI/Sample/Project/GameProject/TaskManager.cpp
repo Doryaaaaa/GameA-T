@@ -108,6 +108,12 @@ void TaskManager::DeleteAll()
 	}
 }
 
+//オブジェクトリストを取得
+const std::list<Task*>& TaskManager::GetObjctList()
+{
+	return m_objectList;
+}
+
 //リスト内の全タスクの更新処理を呼び出す
 void TaskManager::UpDate()
 {
