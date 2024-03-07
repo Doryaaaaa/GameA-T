@@ -78,6 +78,10 @@ void TaskManager::DeleteAll() {
 		delete del;
 	}
 }
+//オブジェクトリストを取得
+const std::list<Task*>& TaskManager::GetObjectList() {
+	return m_objectList;
+}
 //リスト内の全タスクの更新処理を呼び出す
 void TaskManager::Update() {
 	//削除フラグが立っているタスクを削除

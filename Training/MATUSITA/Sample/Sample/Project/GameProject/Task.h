@@ -5,6 +5,7 @@ class TaskManager;
 //タスクの優先度
 enum class TaskPrio {
 	Field,
+	Shadow,
 	Object,
 
 	UI,

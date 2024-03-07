@@ -78,6 +78,7 @@ void TaskManager::Delete(Task* del) {
 	m_taskList.remove(del);
 	delete del;
 }
+
 //リスト内のタスクを全て削除
 void TaskManager::DeleteAll()
 {
@@ -94,6 +95,7 @@ void TaskManager::DeleteAll()
 	}
 }
 
+static const std::list<Task*>& GetObjectList();
 
 //リスト内の全タスクを更新処理を呼び出す
 void TaskManager::Update() {
@@ -161,3 +163,7 @@ void TaskManager::Render()
 	}
 }
 
+const std::list<Task*>& TaskManager::GetObjectList()
+{
+	return m_objectList;
+}
