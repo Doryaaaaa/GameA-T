@@ -11,12 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CharaBase.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ObjectBase.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Slime.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharaBase.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="ObjectBase.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="Slime.h" />
   </ItemGroup>

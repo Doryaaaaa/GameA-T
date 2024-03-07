@@ -1,9 +1,9 @@
 #include"Player.h"
 //コンストラクタ
 Player::Player()
-	: m_pos(CVector2D(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.75f))
-	,m_hp(100)
+	: CharaBase(CVector2D(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.75f))
 	{
+	m_hp = 200;
 	m_pos = CVector2D(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.75f);
 	int frame = 6;
 	m_animData=new TexAnimData[2]
@@ -41,6 +41,13 @@ Player::~Player() {
 	}
 	delete[]m_animData;
 	delete m_img;
+}
+void Player::Death() {
+	//基底クラスの死亡処理も呼び出す
+	CharaBase::Death();
+	//死亡アニメーションを再生して
+	//死亡アニメーションが終わったら
+	//ゲームオーバー画面を表示する
 }
 //プレイヤー座標取得
 const CVector2D& Player::GetPos()const{

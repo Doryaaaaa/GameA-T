@@ -8,6 +8,12 @@
     <ClCompile Include="Slime.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectBase.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CharaBase.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h" />
@@ -15,6 +21,12 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Slime.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectBase.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="CharaBase.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
