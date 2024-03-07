@@ -24,6 +24,7 @@ public:
 	static void Delete(Task* del);
 	//リスト内のタスクを全て削除
 	static void DeleteAll();
+	static const std::list<Task*>& GetObjectList();
 	//リスト内の全タスクの更新処理を呼び出す
 	static void Update();
 	//リスト内の全タスクの描画処理を呼び出す
