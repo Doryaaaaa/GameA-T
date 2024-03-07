@@ -20,10 +20,10 @@ Enemy::Enemy(const CVector3D&pos):Base(eType_Enemy) {
 void Enemy::Update() {
 	const int move_speed = 4;
 	if (HOLD(CInput::eUp)) {
-		m_pos.y += move_speed;
+		m_pos.y -= move_speed;
 	}
 	if (HOLD(CInput::eDown)) {
-		m_pos.y -= move_speed;
+		m_pos.y += move_speed;
 	}
 	m_img.UpdateAnimation();
 }
