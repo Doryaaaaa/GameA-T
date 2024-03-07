@@ -2,7 +2,9 @@
 #include "Game/Player.h"
 #include"Game/Enemy.h"
 #include"Game/Field.h"
-#include "Game/Portion1.h"//--------------------------------------------
+#include "Game/Portion1.h"
+
+//--------------------------------------------
 //ƒOƒ[ƒoƒ‹•Ï”—Ìˆæ
 //--------------------------------------------
 Enemy* p_enemy = nullptr;
@@ -78,7 +80,7 @@ void Init(void)
 	Base::Add(new Field());
 	Base::Add(new Player(CVector3D(1200, 500,0)));
 
-	Base::Add(new Portion1(CVector3D(1200, 2800, 0)));
+	Base::Add(new Portion1(CVector3D(1200, 1800, 0)));
 	Base::Add(new Enemy());
 
 
