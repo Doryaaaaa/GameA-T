@@ -2,13 +2,12 @@
 
 // コンストラクタ
 Slime::Slime(int type, const CVector2D& pos)
-	:m_pos(pos)
+	:CharaBase(pos)
 	,mp_animData(nullptr)
 	,mp_image(nullptr)
-	, m_hp(100)
 	,m_type(type)
-	// 初期化子リスト
 {
+	m_hp = 50;
 	//プレイヤーのアニメーションデータを生成
 	int frame = 6;
 	mp_animData = new TexAnimData[1]
@@ -39,7 +38,7 @@ Slime::Slime(int type, const CVector2D& pos)
 Slime::~Slime()
 {
 	// アニメーションデータの配列を削除
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		delete[] mp_animData[i].pData;
 	}
@@ -47,18 +46,6 @@ Slime::~Slime()
 
 	// 画像データを削除
 	delete mp_image;
-}
-
-//プレイヤーの座標を取得
-const CVector2D& Slime::GetPos()const
-{
-	return m_pos;
-}
-
-//プレイヤーの座標を設定
-void Slime::SetPos(const CVector2D& pos)
-{
-	m_pos = pos;
 }
 
 // 更新処理

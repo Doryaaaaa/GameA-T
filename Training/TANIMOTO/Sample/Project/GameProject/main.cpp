@@ -20,7 +20,9 @@ void MainLoop(void) {
 	//ƒQ[ƒ€’†‚Í‚±‚ÌŠÖ”_‚ð1•bŠÔ‚É60‰ñŒÄ‚Ño‚µ‚Ä‚¢‚é
 	//--------------------------------------------------------------
 
-	p_player->Update();
+	ObjectBase* player = p_player;
+	player->Update();
+	//p_player->Update();
 	p_slimeA->Update();
 	p_slimeB->Update();
 	p_slimeC->Update();
