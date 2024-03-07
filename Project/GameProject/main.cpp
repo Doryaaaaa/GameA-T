@@ -1,9 +1,11 @@
 #include "Base/Base.h"
 #include "Game/Player.h"
-//--------------------------------------------
+#include"Game/Enemy.h"
+#include"Game/Field.h"
+#include "Game/Portion1.h"//--------------------------------------------
 //グローバル変数領域
 //--------------------------------------------
-
+Enemy* p_enemy = nullptr;
 
 
 
@@ -57,26 +59,27 @@ void Init(void)
 	//-----------------------------------------------------
 	//画像の読み込みと登録　”リソース名”　　　　”ファイル名” , アニメーションデータ , 幅 , 高さ
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png"));
-	//ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png", enemy_anim_data, 256, 256));
+	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy(仮).png", enemy_anim_data, 500, 500));
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
-	//ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/ForeGround.png"));
+	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(仮).png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	//ADD_RESOURCE("Effect_Slash", CImage::CreateImage("Image/Effect_Slash.png", effect_slash_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Smoke", CImage::CreateImage("Image/Effect_Smoke.png", effect_smoke_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Blood", CImage::CreateImage("Image/Effect_Blood.png", effect_blood_anim_data, 128, 128));
 	//ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
+	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
 
 	//-----------------------------------------------------
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
+	Base::Add(new Field());
+	Base::Add(new Player(CVector3D(1200, 500,0)));
 
-	Base::Add(new Player(CVector2D(200, 500)));
-
-
-
+	Base::Add(new Portion1(CVector3D(1200, 2800, 0)));
+	Base::Add(new Enemy());
 
 
 

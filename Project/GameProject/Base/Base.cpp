@@ -134,9 +134,9 @@ std::list<Base*> Base::FindObjects(int type)
     return ret;
 }
 
-CVector3D Base::GetScreenPos(const CVector3D& pos)
+CVector2D Base::GetScreenPos(const CVector3D& pos)
 {
-    return CVector3D(pos.x - m_scroll.x, pos.y - m_scroll.y, pos.z - m_scroll.z);
+    return CVector2D(pos.x - m_scroll.x-pos.z,pos.y - m_scroll.y+pos.z);
 }
 void Base::DrawRect()
 {
