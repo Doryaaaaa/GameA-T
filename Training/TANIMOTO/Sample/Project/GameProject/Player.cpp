@@ -66,24 +66,39 @@ void Player::Death()
 // 更新処理
 void Player::Update()
 {
+	bool isMove = false;
 	// 左キーを押している間
 	if (HOLD(CInput::eLeft))
 	{
 		// 左方向へ移動
-		m_pos.x -= 8.0f;
+		m_pos.x -= 5.0f;
 		mp_image->ChangeAnimation(1);
 		mp_image->SetFlipH(true);
+		isMove = true;
 	}
 	// 右キーを押している間
 	else if (HOLD(CInput::eRight))
 	{
 		// 右方向へ移動
-		m_pos.x += 8.0f;
+		m_pos.x += 5.0f;
 		mp_image->ChangeAnimation(1);
 		mp_image->SetFlipH(false);
+		isMove = true;
+	}
+	if (HOLD(CInput::eUp))
+	{
+		m_pos.y -= 3.0f;
+		mp_image->ChangeAnimation(1);
+		isMove = true;
+	}
+	else if (HOLD(CInput::eDown))
+	{
+		m_pos.y += 3.0f;
+		mp_image->ChangeAnimation(1);
+		isMove = true;
 	}
 	// 左右キーどちらも押されていない場合
-	else
+	if(!isMove)
 	{
 		// 待機アニメーションを再生
 		mp_image->ChangeAnimation(0);

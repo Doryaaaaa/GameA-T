@@ -32,6 +32,7 @@ Slime::Slime(int type, const CVector2D& pos)
 	);
 	mp_image->ChangeAnimation(0);
 	mp_image->SetCenter(128.0f, 184.0f);
+	mp_image->SetFlipH(true);
 }
 
 // デストラクタ
