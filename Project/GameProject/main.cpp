@@ -3,7 +3,6 @@
 #include"Game/Enemy.h"
 #include"Game/Field.h"
 #include "Game/Portion1.h"
-
 //--------------------------------------------
 //グローバル変数領域
 //--------------------------------------------
@@ -78,10 +77,13 @@ void Init(void)
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
 	Base::Add(new Field());
-	Base::Add(new Player(CVector3D(1200, 500,0)));
 
-	Base::Add(new Portion1(CVector3D(1200, 1800, 0)));
-	Base::Add(new Enemy());
+	Base::Add(new Portion1(CVector3D(1200, 2800, 0)));
+
+
+
+
+	Base::Add(new Enemy(CVector3D(1200,0,0)));
 
 
 

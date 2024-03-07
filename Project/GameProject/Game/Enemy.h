@@ -3,7 +3,7 @@
 
 class Enemy :public Base{
 public:
-	Enemy();
+	Enemy(const CVector3D&pos);
 
 	void Update();
 	void Draw();
