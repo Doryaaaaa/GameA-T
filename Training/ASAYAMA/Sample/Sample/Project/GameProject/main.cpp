@@ -1,6 +1,7 @@
 #include"Player.h"
 #include"Slime.h"
 #include"TaskManager.h"
+#include"ShadowManager.h"
 
 //--------------------------------------------
 //ƒOƒ[ƒoƒ‹•Ï”—Ìˆæ
@@ -56,6 +57,7 @@ void Init(void)
 	//-----------------------------------------------------
 
 	fieldimage = CImage::CreateImage("field.png");
+	new ShadowManager();
 	new Player();
 
 	new Slime(0,CVector2D(SCREEN_WIDTH * 0.75f, SCREEN_HEIGHT * 0.8f));

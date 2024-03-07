@@ -4,6 +4,7 @@ class TaskManager;
 
 enum class TaskPrio {
     Field,//フィールド
+	Shadow,//オブジェクトの影
     Object,//ゲーム内オブジェクト
 
     UI,//画面に表示するHUDなどのUI
