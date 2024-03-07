@@ -14,6 +14,12 @@
     <ClCompile Include="CharaBase.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Task.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskMamager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Global.h" />
@@ -27,6 +33,12 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="CharaBase.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskManager.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
