@@ -3,6 +3,7 @@
 #include"Game/Enemy.h"
 #include"Game/Field.h"
 #include "Game/Portion1.h"
+#include"Game/Trapp1.h"
 #include"Game/Trapp1Manager.h"
 //--------------------------------------------
 //ÉOÉçÅ[ÉoÉãïœêîóÃàÊ
@@ -64,7 +65,7 @@ void Init(void)
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy(âº).png", enemy_anim_data, 500, 500));
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
-	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(âº).png"));
+	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(âº)2.png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	//ADD_RESOURCE("Effect_Slash", CImage::CreateImage("Image/Effect_Slash.png", effect_slash_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Smoke", CImage::CreateImage("Image/Effect_Smoke.png", effect_smoke_anim_data, 128, 128));
@@ -72,7 +73,7 @@ void Init(void)
 	//ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
-	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.png"));
+	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.png",Trapp1_anim_data, 500, 500));
 
 
 	//-----------------------------------------------------

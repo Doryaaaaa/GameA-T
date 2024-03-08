@@ -10,3 +10,4 @@ public:
 private:
 	CImage m_img;
 };
+extern TexAnimData Trapp1_anim_data[];
