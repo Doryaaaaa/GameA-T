@@ -4,6 +4,7 @@
 /// </summary>
 enum {
     eType_Field,
+    eType_Score,
     eType_Portion1,
     eType_Door,
     eType_AreaChange,
@@ -34,6 +35,7 @@ public:
     float m_rad;
     //移動ベクトル
     CVector3D m_vec;
+
 
     //矩形
     CRect   m_rect;

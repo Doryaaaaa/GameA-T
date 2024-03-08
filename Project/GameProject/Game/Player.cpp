@@ -3,13 +3,13 @@
 
 
 Player::Player(const CVector3D& pos) :Base(eType_Player) {
-    m_img = COPY_RESOURCE("Player", CImage);
+    m_img = COPY_RESOURCE("Enemy", CImage);
    // m_img.ChangeAnimation(0);
     m_pos = pos;
     //サイズ設定
-    m_img.SetSize(200, 200);
+    m_img.SetSize(400, 400);
     //中心位置設定
-    m_img.SetCenter(100, 100);
+    m_img.SetCenter(200, 400);
     //当たり判定
     m_rect = CRect(-50, -50, 50, 50);
     //通常状態(常に走り)へ
@@ -65,12 +65,19 @@ void Player::Update() {
     //重力による落下
     m_vec.y += GRAVITY;
     m_pos += m_vec;
+
+    m_scroll.x = m_pos.x - 1920 / 2;
+
     
     //m_img.UpdateAnimation();
 }
 void Player::Draw() {
     m_img.SetPos(GetScreenPos(m_pos));
     m_img.Draw();
+    Utility::DrawQuad(
+        GetScreenPos(m_pos),
+        CVector2D(16,16),
+        CVector4D(1, 0, 0, 0.5f));
     //DrawRect();
 }
 
@@ -109,6 +116,8 @@ void Player::StateRun() {
     if (HOLD(CInput::eDown)) {
         m_pos.z += move_speed;
     }
+    const int move_Scrollspeed = 30;
+    m_pos.x += move_Scrollspeed;
     /*
     //攻撃(S)
     if (PUSH(CInput::eButton)) {

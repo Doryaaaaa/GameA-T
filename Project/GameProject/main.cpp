@@ -3,6 +3,7 @@
 #include"Game/Enemy.h"
 #include"Game/Field.h"
 #include "Game/Portion1.h"
+#include"Game/Score.h"
 //--------------------------------------------
 //ÉOÉçÅ[ÉoÉãïœêîóÃàÊ
 //--------------------------------------------
@@ -64,6 +65,7 @@ void Init(void)
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
 	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(âº).png"));
+	ADD_RESOURCE("Score", CImage::CreateImage("Image/Score.png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	//ADD_RESOURCE("Effect_Slash", CImage::CreateImage("Image/Effect_Slash.png", effect_slash_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Smoke", CImage::CreateImage("Image/Effect_Smoke.png", effect_smoke_anim_data, 128, 128));
@@ -79,6 +81,7 @@ void Init(void)
 	Base::Add(new Field());
 	Base::Add(new Player(CVector3D(1200, 2800, 0)));
 	Base::Add(new Portion1(CVector3D(1800, 4800, 0)));
+	Base::Add(new Score(CVector2D(540, 960)));
 
 
 
