@@ -30,3 +30,8 @@ public:
 
 
 };
+
+extern TexAnimData player_anim_data[];
+extern TexAnimData damage_anim_data[];
+extern TexAnimData jumpup_anim_data[];
+extern TexAnimData jumpdown_anim_data[];
