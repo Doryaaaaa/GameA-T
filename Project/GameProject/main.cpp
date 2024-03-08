@@ -72,7 +72,7 @@ void Init(void)
 	//ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
-	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.PNG"));
+	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.png"));
 
 
 	//-----------------------------------------------------
