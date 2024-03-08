@@ -37,13 +37,16 @@ void Init(void)
 	CInput::SetButton(0, CInput::eButton2, 'X');
 	CInput::SetButton(0, CInput::eButton3, 'C');
 	CInput::SetButton(0, CInput::eButton4, 'V');
-	CInput::SetButton(0, CInput::eButton5, VK_SPACE);
+	CInput::SetButton(0, CInput::eButton5, VK_SPACE);//ジャンプ
+	CInput::SetButton(0, CInput::eButton6, 'W');//上移動
+	CInput::SetButton(0, CInput::eButton7, 'S');//下移動
+	CInput::SetButton(0, CInput::eButton8, 'M');//攻撃（仮）
 	CInput::SetButton(0, CInput::eButton10, VK_RETURN);
 	CInput::SetButton(0, CInput::eUp, VK_UP);
 	CInput::SetButton(0, CInput::eDown, VK_DOWN);
 	CInput::SetButton(0, CInput::eLeft, VK_LEFT);
 	CInput::SetButton(0, CInput::eRight, VK_RIGHT);
-	CInput::SetButton(0, CInput::eMouseL, VK_LBUTTON);
+	CInput::SetButton(0, CInput::eMouseL, VK_LBUTTON);//攻撃
 	CInput::SetButton(0, CInput::eMouseR, VK_RBUTTON);
 	CInput::SetButton(0, CInput::eMouseC, VK_MBUTTON);
 	//	CInput::SetMouseInside(true);
@@ -61,7 +64,7 @@ void Init(void)
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
 	//画像の読み込みと登録　”リソース名”　　　　”ファイル名” , アニメーションデータ , 幅 , 高さ
-	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png"));
+	ADD_RESOURCE("Player", CImage::CreateImage("Image/Player.png",player_anim_data,500,500));
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy(仮).png", enemy_anim_data, 500, 500));
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
