@@ -3,7 +3,7 @@
 #include"Game/Enemy.h"
 #include"Game/Field.h"
 #include "Game/Portion1.h"
-#include"Game/Score.h"
+#include"Game/Trapp1Manager.h"
 //--------------------------------------------
 //ÉOÉçÅ[ÉoÉãïœêîóÃàÊ
 //--------------------------------------------
@@ -65,7 +65,6 @@ void Init(void)
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
 	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(âº).png"));
-	ADD_RESOURCE("Score", CImage::CreateImage("Image/Score.png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	//ADD_RESOURCE("Effect_Slash", CImage::CreateImage("Image/Effect_Slash.png", effect_slash_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Smoke", CImage::CreateImage("Image/Effect_Smoke.png", effect_smoke_anim_data, 128, 128));
@@ -73,6 +72,8 @@ void Init(void)
 	//ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
+	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.PNG"));
+
 
 	//-----------------------------------------------------
 	//èâä˙âªÇÃñΩóﬂÇèëÇ≠
@@ -81,8 +82,7 @@ void Init(void)
 	Base::Add(new Field());
 	Base::Add(new Player(CVector3D(1200, 2800, 0)));
 	Base::Add(new Portion1(CVector3D(1800, 4800, 0)));
-	Base::Add(new Score(CVector2D(540, 960)));
-
+	Base::Add(new Trapp1Manager());
 
 
 
