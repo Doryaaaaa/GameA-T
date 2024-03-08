@@ -77,22 +77,21 @@ void Player::Update() {
     const float jump_pow = 15;
 
     //上移動（上キー）
-    if (HOLD(CInput::eUp)) {
+    if (HOLD(CInput::eButton6)) {
         m_pos.z -= move_speed;
     }
 
     //下移動（下キー）
-    if (HOLD(CInput::eDown)) {
+    if (HOLD(CInput::eButton7)) {
         m_pos.z += move_speed;
     }
     const int move_Scrollspeed = 30;
     m_pos.x += move_Scrollspeed;
     /*
-    //攻撃(S)
-    if (PUSH(CInput::eButton)) {
+    //攻撃(左クリック)
+    if (PUSH(CInput::eButton8||PUSH(CInput::eMouseL)) {
         //攻撃状態へ移行
-        m_state = eState_Attack;
-        m_attack_no++;
+        m_img.ChangeAnimation(1);
     }
 */
 //ジャンプ(スペース)
