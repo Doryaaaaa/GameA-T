@@ -44,10 +44,10 @@
     <ClCompile Include="Game\Trapp3.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Trapp4.cpp">
+    <ClCompile Include="Game\Trapp1Manager.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Trapp5.cpp">
+    <ClCompile Include="Game\Trapp2Manager.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Portion3.cpp">
@@ -109,10 +109,10 @@
     <ClInclude Include="Game\Trapp3.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Trapp4.h">
+    <ClInclude Include="Game\Trapp1Manager.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Trapp5.h">
+    <ClInclude Include="Game\Trapp2Manager.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Portion3.h">

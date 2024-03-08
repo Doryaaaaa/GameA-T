@@ -27,8 +27,8 @@
     <ClCompile Include="Game\Trapp1.cpp" />
     <ClCompile Include="Game\Trapp2.cpp" />
     <ClCompile Include="Game\Trapp3.cpp" />
-    <ClCompile Include="Game\Trapp4.cpp" />
-    <ClCompile Include="Game\Trapp5.cpp" />
+    <ClCompile Include="Game\Trapp1Manager.cpp" />
+    <ClCompile Include="Game\Trapp2Manager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -48,8 +48,8 @@
     <ClInclude Include="Game\Trapp2.h" />
     <ClInclude Include="Game\Trapp1.h" />
     <ClInclude Include="Game\Trapp3.h" />
-    <ClInclude Include="Game\Trapp4.h" />
-    <ClInclude Include="Game\Trapp5.h" />
+    <ClInclude Include="Game\Trapp1Manager.h" />
+    <ClInclude Include="Game\Trapp2Manager.h" />
     <ClInclude Include="Global.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

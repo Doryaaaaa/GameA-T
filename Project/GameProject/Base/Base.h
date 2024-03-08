@@ -4,6 +4,7 @@
 /// </summary>
 enum {
     eType_Field,
+    eType_Score,
     eType_Portion1,
     eType_Door,
     eType_AreaChange,
@@ -16,6 +17,10 @@ enum {
     eType_Effect,
     eType_UI,
     eType_Scene,
+    eType_Trapp1,
+    eType_Trapp1Manager,
+    eType_Trapp2,
+    eType_Trapp2Manager,
 };
 //重力加速度
 #define GRAVITY (9.8f/20)
@@ -34,6 +39,7 @@ public:
     float m_rad;
     //移動ベクトル
     CVector3D m_vec;
+
 
     //矩形
     CRect   m_rect;
