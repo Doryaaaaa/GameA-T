@@ -39,8 +39,8 @@ void Init(void)
 	CInput::SetButton(0, CInput::eButton4, 'V');
 	CInput::SetButton(0, CInput::eButton5, VK_SPACE);//ジャンプ
 	CInput::SetButton(0, CInput::eButton6, 'W');//上移動
-	CInput::SetButton(0, CInput::eButton5, 'S');//下移動
-	CInput::SetButton(0, CInput::eButton5, 'M');//攻撃（仮）
+	CInput::SetButton(0, CInput::eButton7, 'S');//下移動
+	CInput::SetButton(0, CInput::eButton8, 'M');//攻撃（仮）
 	CInput::SetButton(0, CInput::eButton10, VK_RETURN);
 	CInput::SetButton(0, CInput::eUp, VK_UP);
 	CInput::SetButton(0, CInput::eDown, VK_DOWN);
