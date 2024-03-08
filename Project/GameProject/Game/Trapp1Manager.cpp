@@ -12,7 +12,7 @@ void Trapp1Manager::Update()
 	//“÷oŒ»
 	if (m_cnt <= 0) {
 		//X²‚Í12`1800‚ÌŠÔ‚Åƒ‰ƒ“ƒ_ƒ€
-		Base::Add(new Trapp1(CVector2D(Utility::Rand(2000.0f, 2500.0f), Utility::Rand(500.0f, 1080.0f))));
+		Base::Add(new Trapp1(CVector2D(m_scroll.x+Utility::Rand(2000.0f, 2500.0f), Utility::Rand(500.0f, 1080.0f))));
 		//Ÿ‚ÌoŒ»ŠÔ
 		m_cnt = Utility::Rand(120, 360);
 	}
