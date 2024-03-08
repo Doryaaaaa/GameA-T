@@ -13,7 +13,7 @@ void Field::Draw()
 {
 	float sc;
 	m_field.Draw();
-	sc = m_scroll.x / 4;
+	sc = m_scroll.x;
 	m_field.SetRect(sc, 0, sc + 1920,1080);
 	DrawRect();
 	m_field.Draw();

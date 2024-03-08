@@ -85,7 +85,7 @@ void Player::Update() {
     if (HOLD(CInput::eButton7)) {
         m_pos.z += move_speed;
     }
-    const int move_Scrollspeed = 30;
+    const int move_Scrollspeed = 10;
     m_pos.x += move_Scrollspeed;
     /*
     //UŒ‚(¶ƒNƒŠƒbƒN)

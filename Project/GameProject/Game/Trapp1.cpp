@@ -18,12 +18,12 @@ Trapp1::Trapp1(const CVector3D& pos) :Base(eType_Trapp1) {
 	m_img.ChangeAnimation(0);
 }
 void Trapp1::Update() {
-	const int move_speed = 5;
-	m_pos.x -= move_speed;
+	//const int move_speed = 5;
+	//m_pos.x -= move_speed;
 	m_img.UpdateAnimation();
 }
 void Trapp1::Draw() {
-	m_img.SetPos(m_pos.x, m_pos.y);
+	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
 	//DrawRect();
 }
