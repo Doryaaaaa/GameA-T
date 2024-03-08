@@ -16,6 +16,10 @@ enum {
     eType_Effect,
     eType_UI,
     eType_Scene,
+    eType_Trapp1,
+    eType_Trapp1Manager,
+    eType_Trapp2,
+    eType_Trapp2Manager,
 };
 //d—Í‰Á‘¬“x
 #define GRAVITY (9.8f/20)
