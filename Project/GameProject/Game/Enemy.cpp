@@ -10,6 +10,7 @@ TexAnimData enemy_anim_data[] = {
 };
 Enemy::Enemy(const CVector3D&pos):Base(eType_Enemy) {
 	m_pos = pos;
+	//m_img.SetSize(200, 200);
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	
 	m_img.ChangeAnimation(0);

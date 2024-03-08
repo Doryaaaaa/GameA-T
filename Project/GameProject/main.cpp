@@ -37,13 +37,16 @@ void Init(void)
 	CInput::SetButton(0, CInput::eButton2, 'X');
 	CInput::SetButton(0, CInput::eButton3, 'C');
 	CInput::SetButton(0, CInput::eButton4, 'V');
-	CInput::SetButton(0, CInput::eButton5, VK_SPACE);
+	CInput::SetButton(0, CInput::eButton5, VK_SPACE);//ジャンプ
+	CInput::SetButton(0, CInput::eButton6, 'W');//上移動
+	CInput::SetButton(0, CInput::eButton5, 'S');//下移動
+	CInput::SetButton(0, CInput::eButton5, 'M');//攻撃（仮）
 	CInput::SetButton(0, CInput::eButton10, VK_RETURN);
 	CInput::SetButton(0, CInput::eUp, VK_UP);
 	CInput::SetButton(0, CInput::eDown, VK_DOWN);
 	CInput::SetButton(0, CInput::eLeft, VK_LEFT);
 	CInput::SetButton(0, CInput::eRight, VK_RIGHT);
-	CInput::SetButton(0, CInput::eMouseL, VK_LBUTTON);
+	CInput::SetButton(0, CInput::eMouseL, VK_LBUTTON);//攻撃
 	CInput::SetButton(0, CInput::eMouseR, VK_RBUTTON);
 	CInput::SetButton(0, CInput::eMouseC, VK_MBUTTON);
 	//	CInput::SetMouseInside(true);
