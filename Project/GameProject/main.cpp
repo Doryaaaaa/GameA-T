@@ -85,7 +85,7 @@ void Init(void)
 	//-----------------------------------------------------
 	Base::Add(new Field());
 	Base::Add(new Player(CVector3D(1200, 2800, 0)));
-	Base::Add(new Portion1(CVector3D(1800, 4800, 0)));
+	Base::Add(new Portion1Manager());
 	Base::Add(new Trapp1Manager());
 
 

@@ -1,11 +1,11 @@
 #pragma once
 #include "../Base/Base.h"
 
-class PortionManager : public Base {
+class Portion1Manager : public Base {
 private:
 	int m_cnt;
 public:
-	PortionManager();
+	Portion1Manager();
 	void Update();
 };
 

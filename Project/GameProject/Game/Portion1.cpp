@@ -1,12 +1,12 @@
 #include "Portion1.h"
 
-PortionManager::PortionManager() : Base(eType_PortionManager)
+Portion1Manager::Portion1Manager() : Base(eType_Portion1Manager)
 {
 	//アイテム出現までの時間
 	m_cnt = 0;
 }
 
-void PortionManager::Update()
+void Portion1Manager::Update()
 {
 	m_cnt--;
 	//アイテム出現
@@ -23,6 +23,7 @@ Portion1::Portion1(const CVector3D& pos) :Base(eType_Portion1) {
 	m_pos=pos;
 	//サイズ
 	m_img.SetSize(500,500);
+	//中心位置
 	m_img.SetCenter(250, 250);
 	//当たり判定
 	m_rect = CRect(0, 0, 0, 0);
