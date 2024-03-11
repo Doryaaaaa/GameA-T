@@ -1,5 +1,14 @@
 #pragma once
 #include "../Base/Base.h"
+
+class PortionManager : public Base {
+private:
+	int m_cnt;
+public:
+	PortionManager();
+	void Update();
+};
+
 //‰Á‘¬–ò
 class Portion1 :public Base{
 private:
@@ -11,11 +20,7 @@ public:
 		void Update();
 		void Drow();
 
-		void SetPortion1() {
-			m_is_portion1 = true;
-		}
-
-		bool GetPortion1() {
-			return m_is_portion1;
-		}
 };
+
+
+

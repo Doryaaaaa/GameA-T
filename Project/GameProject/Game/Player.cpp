@@ -42,8 +42,6 @@ Player::Player(const CVector3D& pos) :Base(eType_Player) {
     m_img.SetCenter(200, 400);
     //当たり判定
     m_rect = CRect(-100, 10, 100, 0);
-    //通常状態(常に走り)へ
-    m_state = eState_Run;
     //着地フラグ
     m_is_ground = false;
     //攻撃番号
@@ -78,6 +76,7 @@ void Player::Update() {
 
     //上移動（上キー）
     if (HOLD(CInput::eButton6)) {
+        
         m_pos.z -= move_speed;
     }
 
@@ -85,10 +84,12 @@ void Player::Update() {
     if (HOLD(CInput::eButton7)) {
         m_pos.z += move_speed;
     }
+
     const int move_Scrollspeed = 10;
     m_pos.x += move_Scrollspeed;
+
     /*
-    //攻撃(左クリック)
+    //攻撃(左クリックまたはMキー)
     if (PUSH(CInput::eButton8||PUSH(CInput::eMouseL)) {
         //攻撃状態へ移行
         m_img.ChangeAnimation(1);
@@ -100,18 +101,21 @@ void Player::Update() {
         m_is_ground = false;
         //ジャンプ中なら
         if (!m_is_ground) {
-            if (m_vec.y < 0)
-                //上昇アニメーション
-                m_img.ChangeAnimation(2, false);
-            else
-                //下降アニメーション
-                m_img.ChangeAnimation(3, true);
+            
         }
         
     }
 
     if (m_is_ground) {
         m_img.ChangeAnimation(0);
+    }
+    else {
+        if (m_vec.y < 0)
+            //上昇アニメーション
+            m_img.ChangeAnimation(2, false);
+        else
+            //下降アニメーション
+            m_img.ChangeAnimation(3, true);
     }
     
     
@@ -153,7 +157,7 @@ void Player::Collision(Base* b)
                 m_is_ground = true;
             }
         }
-    }
+   }
     
 }
 
