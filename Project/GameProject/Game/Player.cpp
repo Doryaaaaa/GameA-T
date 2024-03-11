@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "Field.h"
+#include "Portion1.h"
+
 
 TexAnim run_by_anim[] = {
     {0,6},
@@ -39,22 +41,18 @@ Player::Player(const CVector3D& pos) :Base(eType_Player) {
     //サイズ設定
     m_img.SetSize(400, 400);
     //中心位置設定
-    m_img.SetCenter(200, 400);
+    m_img.SetCenter(200, 380);
     //当たり判定
     m_rect = CRect(-100, 10, 100, 0);
-    //通常状態(常に走り)へ
-    m_state = eState_Run;
     //着地フラグ
     m_is_ground = false;
     //攻撃番号
     m_attack_no = rand();
+    //加速度
     m_speed=0;
 
 }
 
-void Player::StateAttack() {
-
-}
 
 void Player::StateSpeedUp() {
     if (m_state = eState_SpeedUp) {
@@ -76,23 +74,26 @@ void Player::Update() {
     //ジャンプ力
     const float jump_pow = 15;
 
-    //上移動（上キー）
-    if (HOLD(CInput::eUp)) {
+    //上移動（上キー）&&　スクリーン制限
+    if (HOLD(CInput::eButton6) && m_pos.z>-390) {
+        
         m_pos.z -= move_speed;
     }
 
     //下移動（下キー）
-    if (HOLD(CInput::eDown)) {
+    if (HOLD(CInput::eButton7) && m_pos.z < -0) {
         m_pos.z += move_speed;
     }
-    const int move_Scrollspeed = 10;
+
+    //スクロールのスピード
+    const int move_Scrollspeed = 100;
     m_pos.x += move_Scrollspeed;
+
     /*
-    //攻撃(S)
-    if (PUSH(CInput::eButton)) {
+    //攻撃(左クリックまたはMキー)
+    if (PUSH(CInput::eButton8||PUSH(CInput::eMouseL)) {
         //攻撃状態へ移行
-        m_state = eState_Attack;
-        m_attack_no++;
+        m_img.ChangeAnimation(1);
     }
 */
 //ジャンプ(スペース)
@@ -101,18 +102,21 @@ void Player::Update() {
         m_is_ground = false;
         //ジャンプ中なら
         if (!m_is_ground) {
-            if (m_vec.y < 0)
-                //上昇アニメーション
-                m_img.ChangeAnimation(2, false);
-            else
-                //下降アニメーション
-                m_img.ChangeAnimation(3, true);
+            
         }
         
     }
 
     if (m_is_ground) {
         m_img.ChangeAnimation(0);
+    }
+    else {
+        if (m_vec.y < 0)
+            //上昇アニメーション
+            m_img.ChangeAnimation(2, false);
+        else
+            //下降アニメーション
+            m_img.ChangeAnimation(3, true);
     }
     
     
@@ -123,7 +127,8 @@ void Player::Update() {
     m_vec.y += GRAVITY;
     m_pos += m_vec;
 
-    m_scroll.x = m_pos.x - 1920 / 2;
+    //スクリーンの左の方に配置
+    m_scroll.x = m_pos.x - 1920 / 10;
 
     
     m_img.UpdateAnimation();
@@ -131,10 +136,14 @@ void Player::Update() {
 void Player::Draw() {
     m_img.SetPos(GetScreenPos(m_pos));
     m_img.Draw();
+
+    //当たり判定？
     Utility::DrawQuad(
         GetScreenPos(m_pos),
-        CVector2D(16,16),
+        //矩形設定
+        CVector2D(200,16),
         CVector4D(1, 0, 0, 0.5f));
+
     DrawRect();
 }
 
@@ -154,7 +163,18 @@ void Player::Collision(Base* b)
                 m_is_ground = true;
             }
         }
-    }
+   }
+   switch (b->m_type) {
+   case eType_Portion1Manager:
+       //Portion1Manager型へキャスト、型変換出来たら
+       if (Portion1Manager* P1 = dynamic_cast<Portion1Manager*>(b)) {
+           //プレイヤーがアイテムと当たったら
+           if (Base::CollisionRect(this, P1)) {
+               //アイテムが消える
+               P1->SetKill();
+           }
+       }
+   }
     
 }
 
