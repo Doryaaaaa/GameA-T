@@ -48,6 +48,7 @@ Player::Player(const CVector3D& pos) :Base(eType_Player) {
     m_is_ground = false;
     //攻撃番号
     m_attack_no = rand();
+    //加速度
     m_speed=0;
 
 }
@@ -73,7 +74,7 @@ void Player::Update() {
     //ジャンプ力
     const float jump_pow = 15;
 
-    //上移動（上キー）
+    //上移動（上キー）&&　スクリーン制限
     if (HOLD(CInput::eButton6) && m_pos.z>-390) {
         
         m_pos.z -= move_speed;
@@ -84,7 +85,8 @@ void Player::Update() {
         m_pos.z += move_speed;
     }
 
-    const int move_Scrollspeed = 10;
+    //スクロールのスピード
+    const int move_Scrollspeed = 100;
     m_pos.x += move_Scrollspeed;
 
     /*
@@ -125,6 +127,7 @@ void Player::Update() {
     m_vec.y += GRAVITY;
     m_pos += m_vec;
 
+    //スクリーンの左の方に配置
     m_scroll.x = m_pos.x - 1920 / 10;
 
     
@@ -137,6 +140,7 @@ void Player::Draw() {
     //当たり判定？
     Utility::DrawQuad(
         GetScreenPos(m_pos),
+        //矩形設定
         CVector2D(200,16),
         CVector4D(1, 0, 0, 0.5f));
 
@@ -164,7 +168,9 @@ void Player::Collision(Base* b)
    case eType_Portion1Manager:
        //Portion1Manager型へキャスト、型変換出来たら
        if (Portion1Manager* P1 = dynamic_cast<Portion1Manager*>(b)) {
+           //プレイヤーがアイテムと当たったら
            if (Base::CollisionRect(this, P1)) {
+               //アイテムが消える
                P1->SetKill();
            }
        }
