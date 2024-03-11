@@ -18,7 +18,7 @@ private:
 public:
 		Portion1(const CVector3D& pos);
 		void Update();
-		void Drow();
+		void Draw();
 
 };
 

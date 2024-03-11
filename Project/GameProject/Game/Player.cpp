@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "Field.h"
+#include "Portion1.h"
+
 
 TexAnim run_by_anim[] = {
     {0,6},
@@ -39,7 +41,7 @@ Player::Player(const CVector3D& pos) :Base(eType_Player) {
     //サイズ設定
     m_img.SetSize(400, 400);
     //中心位置設定
-    m_img.SetCenter(200, 400);
+    m_img.SetCenter(200, 380);
     //当たり判定
     m_rect = CRect(-100, 10, 100, 0);
     //着地フラグ
@@ -50,9 +52,6 @@ Player::Player(const CVector3D& pos) :Base(eType_Player) {
 
 }
 
-void Player::StateAttack() {
-
-}
 
 void Player::StateSpeedUp() {
     if (m_state = eState_SpeedUp) {
@@ -75,13 +74,13 @@ void Player::Update() {
     const float jump_pow = 15;
 
     //上移動（上キー）
-    if (HOLD(CInput::eButton6)) {
+    if (HOLD(CInput::eButton6) && m_pos.z>-390) {
         
         m_pos.z -= move_speed;
     }
 
     //下移動（下キー）
-    if (HOLD(CInput::eButton7)) {
+    if (HOLD(CInput::eButton7) && m_pos.z < -0) {
         m_pos.z += move_speed;
     }
 
@@ -126,7 +125,7 @@ void Player::Update() {
     m_vec.y += GRAVITY;
     m_pos += m_vec;
 
-    m_scroll.x = m_pos.x - 1920 / 2;
+    m_scroll.x = m_pos.x - 1920 / 10;
 
     
     m_img.UpdateAnimation();
@@ -134,10 +133,13 @@ void Player::Update() {
 void Player::Draw() {
     m_img.SetPos(GetScreenPos(m_pos));
     m_img.Draw();
+
+    //当たり判定？
     Utility::DrawQuad(
         GetScreenPos(m_pos),
-        CVector2D(16,16),
+        CVector2D(200,16),
         CVector4D(1, 0, 0, 0.5f));
+
     DrawRect();
 }
 
@@ -157,6 +159,15 @@ void Player::Collision(Base* b)
                 m_is_ground = true;
             }
         }
+   }
+   switch (b->m_type) {
+   case eType_Portion1Manager:
+       //Portion1Manager型へキャスト、型変換出来たら
+       if (Portion1Manager* P1 = dynamic_cast<Portion1Manager*>(b)) {
+           if (Base::CollisionRect(this, P1)) {
+               P1->SetKill();
+           }
+       }
    }
     
 }

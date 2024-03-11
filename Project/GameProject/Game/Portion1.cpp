@@ -22,11 +22,11 @@ Portion1::Portion1(const CVector3D& pos) :Base(eType_Portion1) {
 	m_img= COPY_RESOURCE("Portion1", CImage);
 	m_pos=pos;
 	//サイズ
-	m_img.SetSize(500,500);
+	m_img.SetSize(200,200);
 	//中心位置
-	m_img.SetCenter(250, 250);
+	m_img.SetCenter(50, 0);
 	//当たり判定
-	m_rect = CRect(0, 0, 0, 0);
+	m_rect = CRect(50, 50, 50, 50);
 }
 
 void Portion1::Update()
@@ -34,10 +34,14 @@ void Portion1::Update()
 
 }
 
-void Portion1::Drow()
+void Portion1::Draw()
 {
 	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
-	//DrawRect();
+	Utility::DrawQuad(
+        GetScreenPos(m_pos),
+        CVector2D(100,200),
+        CVector4D(1, 0, 0, 0.5f));
+	DrawRect();
 }
 
