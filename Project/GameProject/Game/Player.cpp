@@ -115,6 +115,7 @@ void Player::Update() {
     }
 
     //スクロールのスピード
+   
     const int move_Scrollspeed = 15;
     m_pos.x += move_Scrollspeed;
 
@@ -165,8 +166,11 @@ void Player::Draw() {
     m_img.SetPos(GetScreenPos(m_pos));
     m_img.Draw();
 
+
     Utility::DrawQuad(
         GetScreenPos(m_pos),
+
+        CVector2D(16,16),
         CVector2D(16,16),
         CVector4D(1, 0, 0, 0.5f));
 

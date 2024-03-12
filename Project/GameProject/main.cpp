@@ -1,5 +1,6 @@
 #include "Task/Task.h"
 #include"Task/TaskManager.h"
+#include"Task/ShadowManager.h"
 #include "Game/Player.h"
 #include"Game/Enemy.h"
 #include"Game/Field.h"
@@ -71,13 +72,14 @@ void Init(void)
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy(仮).png", enemy_anim_data, 500, 500));
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
-	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(仮)6.png"));
+	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(仮).png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	//ADD_RESOURCE("Effect_Slash", CImage::CreateImage("Image/Effect_Slash.png", effect_slash_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Smoke", CImage::CreateImage("Image/Effect_Smoke.png", effect_smoke_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Blood", CImage::CreateImage("Image/Effect_Blood.png", effect_blood_anim_data, 128, 128));
 	//ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
+	ADD_RESOURCE("ShadowManager", CImage::CreateImage("Image/Shadow.PNG"));
 	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
 	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.png",Trapp1_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp2", CImage::CreateImage("Image/Trapp2.png", Trapp1_anim_data, 500, 500));
@@ -86,14 +88,15 @@ void Init(void)
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
-(new Field());
-(new Player(CVector3D(1200, 2800, -150)));
-(new Portion1Manager());
-(new Trapp1Manager());
-(new Trapp2Manager());
-
-
-(new Enemy(CVector3D(1200,0,0)));
+new Field();
+new Player(CVector3D(1200, 2800, -150));
+new Portion1Manager();
+new Trapp1Manager();
+new Trapp2Manager();
+new Enemy(CVector3D(1200,0,0));
+//影描画クラスの生成
+new ShadowManager();
+(new Enemy(CVector3D(2200,2800,0)));
 
 
 
