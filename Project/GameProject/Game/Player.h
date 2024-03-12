@@ -16,9 +16,8 @@ private:
 	bool m_is_ground;
 	//UŒ‚”Ô†
 	int m_attack_no;
+	//‰Á‘¬“x
 	float m_speed;
-	void StateRun();
-	void StateAttack();
 	void StateSpeedUp();
 	void StateSpeedDown();
 

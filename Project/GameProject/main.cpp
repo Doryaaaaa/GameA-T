@@ -5,6 +5,9 @@
 #include "Game/Portion1.h"
 #include"Game/Trapp1.h"
 #include"Game/Trapp1Manager.h"
+#include"Game/Trapp2.h"
+#include"Game/Trapp2Manager.h"
+
 //--------------------------------------------
 //グローバル変数領域
 //--------------------------------------------
@@ -77,17 +80,17 @@ void Init(void)
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
 	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.png",Trapp1_anim_data, 500, 500));
-
+	ADD_RESOURCE("Trapp2", CImage::CreateImage("Image/Trapp2.png", Trapp1_anim_data, 500, 500));
 
 	//-----------------------------------------------------
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
 	Base::Add(new Field());
-	Base::Add(new Player(CVector3D(1200, 2800, 0)));
-	Base::Add(new Portion1(CVector3D(1800, 4800, 0)));
+	Base::Add(new Player(CVector3D(1200, 2800, -150)));
+	Base::Add(new Portion1Manager());
 	Base::Add(new Trapp1Manager());
-
+	Base::Add(new Trapp2Manager());
 
 
 	Base::Add(new Enemy(CVector3D(1200,0,0)));

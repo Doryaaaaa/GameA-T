@@ -17,6 +17,7 @@ enum {
     eType_Effect,
     eType_UI,
     eType_Scene,
+    eType_Portion1Manager,
     eType_Trapp1,
     eType_Trapp1Manager,
     eType_Trapp2,

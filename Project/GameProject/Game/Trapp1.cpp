@@ -1,5 +1,5 @@
 #include"Trapp1.h"
-//スイッチ
+//トゲ
 TexAnim Trapp1_anim[] = {
 	{0,6},
 	{1,6},
