@@ -12,7 +12,7 @@ void Portion1Manager::Update()
 	//アイテム出現
 	if (m_cnt <= 0) {
 		//X軸は2000～2500の間、Y軸は500～1080の間でランダム
-		(new Portion1(CVector2D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f), Utility::Rand(500.0f, 1080.0f))));
+		(new Portion1(CVector3D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f),1000, Utility::Rand(-380.0f,0.0f))));
 		//次の出現時間
 		m_cnt = Utility::Rand(40, 120);
 	}
@@ -24,9 +24,9 @@ Portion1::Portion1(const CVector3D& pos) :ObjectBase(eType_Portion1) {
 	//サイズ
 	m_img.SetSize(200,200);
 	//中心位置
-	m_img.SetCenter(50, 0);
+	m_img.SetCenter(100,180);
 	//当たり判定
-	m_rect = CRect(50, 50, 50, 50);
+	m_rect = CRect(-50, -50, 50, 0);
 }
 
 void Portion1::Update()
@@ -38,9 +38,9 @@ void Portion1::Draw()
 {
 	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
-	Utility::DrawQuad(
+	/*Utility::DrawQuad(
         GetScreenPos(m_pos),
-        CVector2D(100,200),
-        CVector4D(1, 0, 0, 0.5f));
+        CVector2D(16,16),
+        CVector4D(1, 0, 0, 0.5f));*/
 	DrawRect();
 }

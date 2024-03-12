@@ -8,6 +8,7 @@ class TaskManager;
 /// </summary>
 enum {
     eType_Field,
+    eTyp_ShadowManager,
     eType_Score,
     eType_Portion1,
     eType_Portion1Manager,
@@ -33,7 +34,7 @@ enum class TaskPrio
     Field,     //フィールド
     Shadow,    //オブジェクトの影
     Object,    //ゲーム中のオブジェクト
-    TrappManager,   //
+    TrappManager,   //全てを呼び出す
 
     UI,        //画面に表示するHUDなどのUI
 };
