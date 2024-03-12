@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Base\Base.cpp" />
     <ClCompile Include="Game\Effect.cpp" />
     <ClCompile Include="Game\Enemy.cpp" />
     <ClCompile Include="Game\Field.cpp" />
@@ -30,9 +29,12 @@
     <ClCompile Include="Game\Trapp1Manager.cpp" />
     <ClCompile Include="Game\Trapp2Manager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Task\ObjectBase.cpp" />
+    <ClCompile Include="Task\ShadowManager.cpp" />
+    <ClCompile Include="Task\Task.cpp" />
+    <ClCompile Include="Task\TaskManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Base\Base.h" />
     <ClInclude Include="Game\Effect.h" />
     <ClInclude Include="Game\Enemy.h" />
     <ClInclude Include="Game\Field.h" />
@@ -51,6 +53,10 @@
     <ClInclude Include="Game\Trapp1Manager.h" />
     <ClInclude Include="Game\Trapp2Manager.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="Task\ObjectBase.h" />
+    <ClInclude Include="Task\ShadowManager.h" />
+    <ClInclude Include="Task\Task.h" />
+    <ClInclude Include="Task\TaskManager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FE2CE3B1-49BF-46A5-9DB1-9BD5B52FE1A0}</ProjectGuid>

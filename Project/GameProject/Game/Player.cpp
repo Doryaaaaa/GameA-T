@@ -34,7 +34,7 @@ TexAnimData player_anim_data[] = {
       ANIMDATA(jumpdown_by_anim),
 };
 
-Player::Player(const CVector3D& pos) :Base(eType_Player) {
+Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     m_img = COPY_RESOURCE("Player", CImage);
     m_img.ChangeAnimation(0);
     m_pos = pos;
@@ -147,7 +147,7 @@ void Player::Draw() {
     DrawRect();
 }
 
-void Player::Collision(Base* b)
+void Player::Collision(Task* b)
 {
    switch (b->m_type) {
     case eType_Field:
@@ -164,17 +164,17 @@ void Player::Collision(Base* b)
             }
         }
    }
-   switch (b->m_type) {
+ /*  switch (b->m_type) {
    case eType_Portion1Manager:
        //Portion1Manager型へキャスト、型変換出来たら
        if (Portion1Manager* P1 = dynamic_cast<Portion1Manager*>(b)) {
            //プレイヤーがアイテムと当たったら
-           if (Base::CollisionRect(this, P1)) {
+           if (Task::CollisionRect(this, P1)) {
                //アイテムが消える
                P1->SetKill();
            }
        }
    }
-    
+   */ 
 }
 

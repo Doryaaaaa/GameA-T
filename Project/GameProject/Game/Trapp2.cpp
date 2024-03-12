@@ -9,7 +9,7 @@ TexAnimData Trapp2_anim_data[] = {
 };
 
 
-Trapp2::Trapp2(const CVector3D& pos) :Base(eType_Trapp2) {
+Trapp2::Trapp2(const CVector3D& pos) :ObjectBase(eType_Trapp2) {
 	m_pos = pos;
 	m_img = COPY_RESOURCE("Trapp2", CImage);
 	m_img.SetSize(200, 200);

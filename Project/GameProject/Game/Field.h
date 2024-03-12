@@ -1,7 +1,7 @@
 #pragma once
-#include "../Base/Base.h"
+#include "../Task/Task.h"
 
-class Field :public Base {
+class Field :public Task {
 public:
 	//画像オブジェクト
 	CImage m_field;

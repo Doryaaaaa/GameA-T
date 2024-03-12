@@ -1,7 +1,7 @@
 #pragma once
-#include"../Base/Base.h"
+#include"../Task/ObjectBase.h"
 
-class Enemy :public Base{
+class Enemy :public ObjectBase{
 public:
 	Enemy(const CVector3D&pos);
 
