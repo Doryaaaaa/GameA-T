@@ -1,6 +1,29 @@
 #pragma once
 #include"Task.h"
 
+struct Rect3D {
+    float left;
+    float top;
+    float front;
+    float right;
+    float bottom;
+    float back;
+    float width;
+    float height;
+    Rect3D() {
+        memset(this, 0, sizeof(Rect3D));
+    }
+    Rect3D(float l, float t, float f, float r, float b, float bk) {
+        left = l;
+        top = t;
+        front = f;
+        right = r;
+        bottom = b;
+        back = bk;
+        width = right - left;
+        height = bottom - top;
+    }
+};
 /// <summary>
 /// ゲームオブジェクトの基底クラス
 /// </summary>
@@ -15,7 +38,7 @@ public:
     //スクロール値
     static CVector3D m_scroll;
     //矩形
-    CRect   m_rect;
+    Rect3D   m_rect;
 public:
     /// <summary>
    /// コンストラクタ

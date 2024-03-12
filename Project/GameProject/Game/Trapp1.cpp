@@ -16,8 +16,7 @@ Trapp1::Trapp1(const CVector3D& pos) :ObjectBase(eType_Trapp1) {
 	m_img = COPY_RESOURCE("Trapp1", CImage);
 	m_img.SetSize(200, 200);
 	m_img.SetCenter(0, 100);
-	m_rect = CRect(-100,-200, 100, 0);
-	m_img.ChangeAnimation(0);
+	m_rect = Rect3D(-100, -200, -10, 100, 0, 10);	m_img.ChangeAnimation(0);
 }
 void Trapp1::Update() {
 	//const int move_speed = 5;

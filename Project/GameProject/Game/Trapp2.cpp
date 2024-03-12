@@ -24,9 +24,9 @@ void Trapp2::Update() {
 void Trapp2::Draw() {
 	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
-	Utility::DrawQuad(
+	/*Utility::DrawQuad(
 		GetScreenPos(m_pos),
 		CVector2D(200, 100),
-		CVector4D(1, 0, 0, 0.5f));
+		CVector4D(1, 0, 0, 0.5f));*/
 	//DrawRect();
 }

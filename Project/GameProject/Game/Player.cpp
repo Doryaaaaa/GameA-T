@@ -9,7 +9,7 @@ Bullet::Bullet(const CVector2D& pos, bool flip, int type, int attack_no) :Object
     m_pos = pos;
     m_img.SetSize(50, 50);
     m_img.SetCenter(25, 25);
-    m_rect = CRect(-25, -25, 25, 25);
+    m_rect = Rect3D(-100, -300, -10, 100, 0, 10);
     m_attack_no = attack_no;
     m_cnt = 0;
 }
@@ -72,7 +72,7 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     //中心位置設定
     m_img.SetCenter(200, 380);
     //当たり判定
-    m_rect = CRect(-100, 10, 100, 0);
+    m_rect = Rect3D(-100, -300,-10, 100, 0,10);
     //着地フラグ
     m_is_ground = false;
     //攻撃番号
@@ -167,13 +167,13 @@ void Player::Draw() {
     m_img.Draw();
 
 
-    Utility::DrawQuad(
+    /*Utility::DrawQuad(
         GetScreenPos(m_pos),
 
         CVector2D(16,16),
         CVector2D(16,16),
         CVector4D(1, 0, 0, 0.5f));
-
+*/
     DrawRect();
 }
 

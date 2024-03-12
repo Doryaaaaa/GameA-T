@@ -17,14 +17,14 @@ Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_img.ChangeAnimation(0);
 	m_img.SetCenter(200,380);
 	m_is_ground = false;
-	//m_rect = CRect(-100, -400, 100, 0);
+	m_rect = Rect3D(-100, -400,-10, 100, 0,10);
 
 }
 
 
 void Enemy::Update() {
 	const int move_speed = 4;
-	const int move_Scrollspeed = 10;
+	const int move_Scrollspeed = 15;
 	m_pos.x += move_Scrollspeed;
 	//m_cnt=0;
 	m_cnt++;
