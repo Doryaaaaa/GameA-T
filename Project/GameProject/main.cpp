@@ -93,7 +93,7 @@ new Player(CVector3D(1200, 2800, -150));
 new Portion1Manager();
 new Trapp1Manager();
 new Trapp2Manager();
-new Enemy(CVector3D(1200,0,0));
+//new Enemy(CVector3D(1200,0,0));
 //‰e•`‰æƒNƒ‰ƒX‚Ì¶¬
 new ShadowManager();
 (new Enemy(CVector3D(2200,2800,0)));
