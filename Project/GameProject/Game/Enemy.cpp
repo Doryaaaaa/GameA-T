@@ -18,7 +18,6 @@ Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_img.SetCenter(200,380);
 	m_is_ground = false;
 	//m_rect = CRect(-100, -400, 100, 0);
-	m_cnt = 120;
 
 }
 
@@ -27,7 +26,9 @@ void Enemy::Update() {
 	const int move_speed = 4;
 	const int move_Scrollspeed = 10;
 	m_pos.x += move_Scrollspeed;
-	//カウントが０より小さい場合カウントがプラスされる
+	//m_cnt=0;
+	m_cnt++;
+	/*カウントが０より小さい場合カウントがプラスされる
 	if (m_cnt<0) {
 		m_cnt++;
 	}
@@ -46,8 +47,28 @@ void Enemy::Update() {
 	
     if (m_cnt==0) {
 		m_cnt =-180+rand()% 360;
+	}*/
+	
+	if (m_cnt==180) {
+		cnt = 1 + rand() % 3;
+	}
+	if (m_cnt > 200) {
+		m_cnt = 0;
+	}
+	switch (cnt)
+	{
+	case 1:
+		m_pos.z = 0;
+		break;
+	case 2:
+		m_pos.z = -170;
+		break;
+	case 3:
+		m_pos.z = -340;
+		break;
 	}
 	
+
 
 	m_vec.y += GRAVITY;
 	m_pos += m_vec;
