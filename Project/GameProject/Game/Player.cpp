@@ -86,7 +86,8 @@ void Player::Update() {
     }
 
     //スクロールのスピード
-    const int move_Scrollspeed = 5;
+
+    const int move_Scrollspeed = 15;
     m_pos.x += move_Scrollspeed;
 
     /*
