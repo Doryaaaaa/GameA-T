@@ -141,7 +141,7 @@ CVector2D Base::GetScreenPos(const CVector3D& pos)
 void Base::DrawRect()
 {
     //デバッグ用　矩形の表示
-    CRect rect = CRect(
+    CRect rect = CRect( 
         m_pos.x + m_rect.m_left,
         m_pos.y + m_rect.m_top,
         m_pos.x + m_rect.m_right,
