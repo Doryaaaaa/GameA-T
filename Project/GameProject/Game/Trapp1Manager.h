@@ -1,7 +1,7 @@
 #pragma once
-#include "../Base/Base.h"
+#include "../Task/ObjectBase.h"
 
-class Trapp1Manager : public Base {
+class Trapp1Manager : public ObjectBase {
 private:
 	int m_cnt;
 public:

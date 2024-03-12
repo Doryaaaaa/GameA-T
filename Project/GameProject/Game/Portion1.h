@@ -1,7 +1,7 @@
 #pragma once
-#include "../Base/Base.h"
+#include "../Task/ObjectBase.h"
 
-class Portion1Manager : public Base {
+class Portion1Manager : public ObjectBase {
 private:
 	int m_cnt;
 public:
@@ -10,7 +10,7 @@ public:
 };
 
 //‰Á‘¬–ò
-class Portion1 :public Base{
+class Portion1 :public ObjectBase{
 private:
 		CImage m_img;
 		bool m_is_portion1;

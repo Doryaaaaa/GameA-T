@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../Base/Base.h"
-class Player :public Base {
+#include "../Task/ObjectBase.h"
+class Player :public ObjectBase {
 private:
 	enum {
 		eState_Run,
@@ -25,7 +25,7 @@ public:
     Player(const CVector3D& pos);
     void Update();
     void Draw();
-    void Collision(Base* b);
+    void Collision(Task* b);
 
 
 };

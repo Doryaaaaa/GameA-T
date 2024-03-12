@@ -1,7 +1,7 @@
 #pragma once
-#include"../Base/Base.h"
+#include"../Task/ObjectBase.h"
 
-class Trapp2 :public Base {
+class Trapp2 :public ObjectBase {
 public:
 	Trapp2(const CVector3D& pos);
 

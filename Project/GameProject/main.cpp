@@ -1,4 +1,5 @@
-#include "Base/Base.h"
+#include "Task/Task.h"
+#include"Task/TaskManager.h"
 #include "Game/Player.h"
 #include"Game/Enemy.h"
 #include"Game/Field.h"
@@ -22,10 +23,9 @@ void MainLoop(void) {
 	//ƒQ[ƒ€’†‚Ì“®‚«‚Í‚±‚±‚É‘‚­
 	//ƒQ[ƒ€’†‚Í‚±‚ÌŠÖ”_‚ğ1•bŠÔ‚É60‰ñŒÄ‚Ño‚µ‚Ä‚¢‚é
 	//--------------------------------------------------------------
-	Base::CheckKillAll();
-	Base::UpdateAll();
-	Base::CollisionAll();
-	Base::DrawAll();
+	TaskManager::UpDate();
+	TaskManager::CollisionAll();
+	TaskManager::Draw();
 
 }
 void Init(void)
@@ -86,14 +86,14 @@ void Init(void)
 	//‰Šú‰»‚Ì–½—ß‚ğ‘‚­
 	//ƒQ[ƒ€‹N“®‚Éˆê“x‚¾‚¯ŒÄ‚Î‚ê‚é
 	//-----------------------------------------------------
-	Base::Add(new Field());
-	Base::Add(new Player(CVector3D(1200, 2800, -150)));
-	Base::Add(new Portion1Manager());
-	Base::Add(new Trapp1Manager());
-	Base::Add(new Trapp2Manager());
+(new Field());
+(new Player(CVector3D(1200, 2800, -150)));
+(new Portion1Manager());
+(new Trapp1Manager());
+(new Trapp2Manager());
 
 
-	Base::Add(new Enemy(CVector3D(1200,0,0)));
+(new Enemy(CVector3D(1200,0,0)));
 
 
 

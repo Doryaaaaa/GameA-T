@@ -8,7 +8,7 @@ TexAnim stand_by_anim[] = {
 TexAnimData enemy_anim_data[] = {
 	{stand_by_anim,sizeof(stand_by_anim) / sizeof(stand_by_anim[0])}
 };
-Enemy::Enemy(const CVector3D&pos):Base(eType_Enemy) {
+Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_pos = pos;
 	
 	m_img = COPY_RESOURCE("Enemy", CImage);

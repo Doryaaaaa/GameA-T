@@ -1,6 +1,6 @@
 #include "Trapp2Manager.h"
 #include "Trapp2.h"
-Trapp2Manager::Trapp2Manager() : Base(eType_Trapp2Manager)
+Trapp2Manager::Trapp2Manager() : ObjectBase(eType_Trapp2Manager)
 {
 	//肉出現までの時間
 	m_cnt = 0;
@@ -12,7 +12,7 @@ void Trapp2Manager::Update()
 	//肉出現
 	if (m_cnt <= 0) {
 		//X軸は12～1800の間でランダム
-		Base::Add(new Trapp2(CVector2D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f), Utility::Rand(500.0f, 1080.0f))));
+		(new Trapp2(CVector2D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f), Utility::Rand(500.0f, 1080.0f))));
 		//次の出現時間
 		m_cnt = Utility::Rand(40, 120);
 	}
