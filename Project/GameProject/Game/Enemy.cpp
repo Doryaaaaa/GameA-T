@@ -1,4 +1,5 @@
 #include"Enemy.h"
+#include"Field.h"
 TexAnim stand_by_anim[] = {
 	{0,6},
     {1,6},
@@ -14,29 +15,71 @@ Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	m_img.SetSize(400, 400);
 	m_img.ChangeAnimation(0);
-	//m_img.SetCenter(200,400);
+	m_img.SetCenter(200,380);
+	m_is_ground = false;
 	//m_rect = CRect(-100, -400, 100, 0);
+	m_cnt = 120;
 
 }
 
 
 void Enemy::Update() {
 	const int move_speed = 4;
-	m_cnt++;
-	if (m_cnt>100) {
-		m_pos.y += move_speed;
+	const int move_Scrollspeed = 10;
+	m_pos.x += move_Scrollspeed;
+	//カウントが０より小さい場合カウントがプラスされる
+	if (m_cnt<0) {
+		m_cnt++;
 	}
-	else if(m_cnt>100) {
-		m_pos.y += move_speed;
+	//カウントが０より大きく座標が０以下の場合手前に来る
+	if (m_cnt > 0 && m_pos.z < 0) {
+		m_pos.z += move_speed;
 	}
-	else if (m_cnt) {
-		m_cnt = 0;
+	//カウントが０より大きい場合カウントがマイナスされる
+	if (m_cnt > 0) {
+		m_cnt--;
 	}
+	//カウントが０より小さく座標がー３９０より大きい場合奥に行く
+	if (m_cnt < 0&& m_pos.z > -390) {
+		m_pos.z -= move_speed;
+	}
+	
+    if (m_cnt==0) {
+		m_cnt =-180+rand()% 360;
+	}
+	
 
+	m_vec.y += GRAVITY;
+	m_pos += m_vec;
 	m_img.UpdateAnimation();
+
 }
 void Enemy::Draw() {
-	m_img.SetPos(m_pos.x,m_pos.y);
+	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
+	Utility::DrawQuad(
+		GetScreenPos(m_pos),
+		//矩形設定
+		CVector2D(200, 16),
+		CVector4D(1, 0, 0, 0.5f));
+
 	DrawRect();
+}
+void Enemy::Collision(Task* b)
+{
+	switch (b->m_type) {
+	case eType_Field:
+		//Field型へキャスト、型変換出来たら
+		if (Field* f = dynamic_cast<Field*>(b)) {
+			//地面より下に行ったら
+			if (m_pos.y > f->GetGroundY()) {
+				//地面の高さを戻す
+				m_pos.y = f->GetGroundY();
+				//落下速度リセット
+				m_vec.y = 0;
+				//設置フラグON
+				m_is_ground = true;
+			}
+		}
+	}
 }

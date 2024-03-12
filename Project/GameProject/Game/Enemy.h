@@ -7,9 +7,12 @@ public:
 
 	void Update();
 	void Draw();
+	void Collision(Task* b);
 private:
 	CImage m_img;
 	int m_hp;
 	int m_cnt;
+	int cnt;
+	bool m_is_ground;
 };
 extern TexAnimData enemy_anim_data[];

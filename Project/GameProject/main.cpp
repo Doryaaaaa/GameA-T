@@ -91,7 +91,7 @@ void Init(void)
 (new Portion1Manager());
 (new Trapp1Manager());
 (new Trapp2Manager());
-(new Enemy(CVector3D(1200,500,0)));
+(new Enemy(CVector3D(2200,2800,0)));
 
 
 
