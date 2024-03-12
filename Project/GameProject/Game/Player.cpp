@@ -1,6 +1,35 @@
 #include "Player.h"
 #include "Field.h"
 #include "Portion1.h"
+#include "Task/TaskManager.h"
+#include "Task/Task.h"
+
+Bullet::Bullet(const CVector2D& pos, bool flip, int type, int attack_no) :ObjectBase(eType_Bullet) {
+    m_img = COPY_RESOURCE("Effect_Bullet", CImage);
+    m_pos = pos;
+    m_img.SetSize(50, 50);
+    m_img.SetCenter(25, 25);
+    m_rect = CRect(-25, -25, 25, 25);
+    m_attack_no = attack_no;
+    m_cnt = 0;
+}
+void Bullet::Update() {
+    //玉のスピードと向き
+    const int move_speed = 10;
+    m_pos.x -= move_speed;
+    //スクリーンの端までいくと消える
+    if (m_pos.x>m_scroll.x) {
+        Kill();
+    }
+
+}
+void Bullet::Draw() {
+    m_img.SetPos(GetScreenPos(m_pos));
+    m_img.Draw();
+    DrawRect();
+}
+
+
 
 
 TexAnim run_by_anim[] = {
@@ -53,14 +82,14 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
 
 }
 
-
+//後で消す
 void Player::StateSpeedUp() {
     if (m_state = eState_SpeedUp) {
         m_speed += 1;
     }
 
 }
-
+//後で消す
 void Player::StateSpeedDown() {
     if (m_state = eState_SpeedDown) {
         m_speed -= 1;
@@ -86,16 +115,16 @@ void Player::Update() {
     }
 
     //スクロールのスピード
-    const int move_Scrollspeed = 10;
+   
+    const int move_Scrollspeed = 15;
     m_pos.x += move_Scrollspeed;
 
-    /*
-    //攻撃(左クリックまたはMキー)
-    if (PUSH(CInput::eButton8||PUSH(CInput::eMouseL)) {
-        //攻撃状態へ移行
-        m_img.ChangeAnimation(1);
+    
+    //攻撃(左クリック)
+    if (HOLD(CInput::eMouseL)) {
+        //(new Bullet(CVector3D(m_pos)));
     }
-*/
+
 //ジャンプ(スペース)
     if (m_is_ground && PUSH(CInput::eButton5)) {
         m_vec.y = -jump_pow;
@@ -137,11 +166,12 @@ void Player::Draw() {
     m_img.SetPos(GetScreenPos(m_pos));
     m_img.Draw();
 
-    //当たり判定？
+
     Utility::DrawQuad(
         GetScreenPos(m_pos),
-        //矩形設定
-        CVector2D(200,16),
+
+        CVector2D(16,16),
+        CVector2D(16,16),
         CVector4D(1, 0, 0, 0.5f));
 
     DrawRect();
@@ -164,17 +194,17 @@ void Player::Collision(Task* b)
             }
         }
    }
- /*  switch (b->m_type) {
+   switch (b->m_type) {
    case eType_Portion1Manager:
        //Portion1Manager型へキャスト、型変換出来たら
        if (Portion1Manager* P1 = dynamic_cast<Portion1Manager*>(b)) {
            //プレイヤーがアイテムと当たったら
-           if (Task::CollisionRect(this, P1)) {
+           if (ObjectBase::CollisionRect(this, P1)) {
                //アイテムが消える
-               P1->SetKill();
+               P1->Kill();
            }
        }
    }
-   */ 
+   
 }
 
