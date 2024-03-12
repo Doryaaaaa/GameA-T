@@ -10,5 +10,6 @@ public:
 private:
 	CImage m_img;
 	int m_hp;
+	int m_cnt;
 };
 extern TexAnimData enemy_anim_data[];

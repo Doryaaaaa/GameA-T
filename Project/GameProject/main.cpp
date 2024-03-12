@@ -93,7 +93,7 @@ void Init(void)
 	Base::Add(new Trapp2Manager());
 
 
-	Base::Add(new Enemy(CVector3D(1200,0,0)));
+	Base::Add(new Enemy(CVector3D(1200,500,0)));
 
 
 
