@@ -2,19 +2,24 @@
 #include"Task/Task.h"
 EnemyHp::EnemyHp(const CVector2D& pos) :Task(eType_EnemyHp,(int)TaskPrio::Field)
 {
+	m_pos = pos;
 	m_img = COPY_RESOURCE("EnemyHp", CImage);
 	//ÉQÅ[ÉWÇÃïù
-	int width = 1900;
+	width = 1900;
 	//ÉQÅ[ÉWÇÃçÇÇ≥
-	int height = 25;
+	height = 25;
 	//åªç›ÇÃHP
-	int hp = 100;
+	hp = 100;
 	//ç≈ëÂHP
-	int max_hp = 100;
+	max_hp = 100;
 }
-void EnemyHp::UpDate()
+void EnemyHp::Update()
 {
 	//ÉQÅ[ÉWîwåi(ê‘)
+	
+}
+void EnemyHp::Draw()
+{
 	m_img.SetSize(width, height);
 	m_img.SetRect(0, 64, width, 128);
 	m_img.Draw();
@@ -24,9 +29,5 @@ void EnemyHp::UpDate()
 	m_img.SetSize(w, height);
 	m_img.SetRect(0, 0, w, 64);
 	m_img.Draw();
-}
-void EnemyHp::Draw()
-{
-
-	m_img.Draw();
+	m_img.SetPos(m_pos);
 }

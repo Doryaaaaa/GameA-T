@@ -1,5 +1,6 @@
 #pragma once
 #include"../Task/ObjectBase.h"
+#include"EnemyHp.h"
 
 class Enemy :public ObjectBase{
 public:
@@ -8,9 +9,11 @@ public:
 	void Update();
 	void Draw();
 	void Collision(Task* b);
+
 private:
 	CImage m_img;
 	int m_hp;
+	EnemyHp* m_hpGeag;
 	int m_cnt;
 	int cnt;
 	bool m_is_ground;
