@@ -1,5 +1,6 @@
 #pragma once
-class EnemyHp {
+#include "../Task/Task.h"
+class EnemyHp : Task{
 public:
 	//ƒQ[ƒW—p‰æ‘œ
 	CImage m_img;
@@ -16,4 +17,5 @@ public:
 	EnemyHp(const CVector2D& pos);
 	//•`‰æ
 	void UpDate();
+	void Draw();
 };

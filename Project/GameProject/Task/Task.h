@@ -16,6 +16,7 @@ enum {
     eType_AreaChange,
     eType_Player,
     eType_Enemy,
+    eType_EnemyHp,
     eType_Bullet,
     eType_Goal,
     eType_Player_Attack,
@@ -32,8 +33,8 @@ enum {
 enum class TaskPrio
 {
     Field,     //フィールド
-    EnemyHp,   //エネミーのHPバー
     Shadow,    //オブジェクトの影
+    EnemyHp,   //エネミーのHPバー
     Object,    //ゲーム中のオブジェクト
     TrappManager,   //全てを呼び出す
 
