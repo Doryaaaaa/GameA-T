@@ -15,19 +15,20 @@ EnemyHp::EnemyHp(const CVector2D& pos) :Task(eType_EnemyHp,(int)TaskPrio::Field)
 }
 void EnemyHp::Update()
 {
-	//ÉQÅ[ÉWîwåi(ê‘)
+	
 	
 }
 void EnemyHp::Draw()
 {
+	//ÉQÅ[ÉWîwåi(ê‘)
 	m_img.SetSize(width, height);
-	m_img.SetRect(0, 64, width, 128);
+	m_img.SetRect(0, 25, width, 50);
 	m_img.Draw();
 
 	//ÉQÅ[ÉWÇÃïùÇåvéZ(óŒ)
 	int w = width * hp / max_hp;
 	m_img.SetSize(w, height);
-	m_img.SetRect(0, 0, w, 64);
+	m_img.SetRect(0, 0, w, 25);
 	m_img.Draw();
 	m_img.SetPos(m_pos);
 }
