@@ -34,6 +34,7 @@ enum {
 enum class TaskPrio
 {
     Field,     //フィールド
+    EnemyHp,   //エネミーのHPバー
     Shadow,    //オブジェクトの影
     Object,    //ゲーム中のオブジェクト
     TrappManager,   //全てを呼び出す

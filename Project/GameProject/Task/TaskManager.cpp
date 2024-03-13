@@ -163,7 +163,7 @@ void TaskManager::Draw()
 		{
 			const ObjectBase* objA = dynamic_cast<const ObjectBase*>(taskA);
 			const ObjectBase* objB = dynamic_cast<const ObjectBase*>(taskB);
-			return objA->m_pos.y < objB->m_pos.y;
+			return objA->m_pos.z < objB->m_pos.z;
 		}
 	);
 

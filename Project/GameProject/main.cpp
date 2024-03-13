@@ -3,6 +3,7 @@
 #include"Task/ShadowManager.h"
 #include "Game/Player.h"
 #include"Game/Enemy.h"
+#include"Game/EnemyHp.h"
 #include"Game/Field.h"
 #include "Game/Portion1.h"
 #include"Game/Trapp1.h"
@@ -81,6 +82,7 @@ void Init(void)
 	//ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	//ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("ShadowManager", CImage::CreateImage("Image/Shadow.PNG"));
+	ADD_RESOURCE("EnemyHp", CImage::CreateImage("Image/HP(âº).png"));
 	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
 	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp3.png",Trapp1_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp2", CImage::CreateImage("Image/Trapp2.png", Trapp2_anim_data, 500, 500));
@@ -99,6 +101,7 @@ new Trapp2Manager();
 //âeï`âÊÉNÉâÉXÇÃê∂ê¨
 new ShadowManager();
 (new Enemy(CVector3D(2200,2800,0)));
+new EnemyHp(CVector2D(50, 1900));
 
 
 
