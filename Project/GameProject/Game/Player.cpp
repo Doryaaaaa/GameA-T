@@ -13,6 +13,7 @@ Bullet::Bullet(const CVector2D& pos, bool flip, int type, int attack_no) :Object
     m_rect = Rect3D(-100, -300, -10, 100, 0, 10);
     m_attack_no = attack_no;
     m_cnt = 0;
+
 }
 void Bullet::Update() {
     //玉のスピードと向き
@@ -82,7 +83,10 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     m_attack_no = rand();
     //加速度
     m_speed=0;
-
+    //スクロール時間
+    move_Scrollspeed=15;
+    //効果時間
+    waitcnt = 10;
 }
 
 void Player::Update() {
@@ -104,10 +108,29 @@ void Player::Update() {
     }
 
     //スクロールのスピード  
-    const int move_Scrollspeed = 15;
-    m_pos.x += move_Scrollspeed;
+    m_pos.x += move_Scrollspeed;    
 
+    if (m_speed > 0) {
+        move_Scrollspeed += 1;
+        if (waitcnt > 0) {
+            waitcnt--;
+        }
+        
+    }
+
+    else if (m_speed < 0) {
+        move_Scrollspeed -= 1;
+        if (waitcnt > 0) {
+            waitcnt--;
+        }
+    }
+
+    if (waitcnt==0) {
+        move_Scrollspeed = 15;
+    }
     
+
+
     //攻撃(左クリック)
     if (HOLD(CInput::eMouseL)) {
         //(new Bullet(CVector3D(m_pos)));
@@ -192,7 +215,8 @@ void Player::Collision(Task* b)
                //アイテムが消える
                P1->Kill();
                //加速
-
+               m_speed = 1;
+               waitcnt = 20;
            }
        }
 
@@ -204,7 +228,8 @@ void Player::Collision(Task* b)
                 //ダメージアニメーション
                 m_img.ChangeAnimation(1);
                 //減速
-                
+                m_speed = -1;
+                waitcnt = 20;
                 //アニメーションが終了したら
                 if (m_img.CheckAnimationEnd()) {
                     m_img.ChangeAnimation(0);

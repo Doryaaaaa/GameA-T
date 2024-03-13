@@ -10,6 +10,7 @@
 #include"Game/Trapp1Manager.h"
 #include"Game/Trapp2.h"
 #include"Game/Trapp2Manager.h"
+#include"Game/Trapp3.h"
 
 //--------------------------------------------
 //グローバル変数領域
@@ -83,9 +84,10 @@ void Init(void)
 	ADD_RESOURCE("ShadowManager", CImage::CreateImage("Image/Shadow.PNG"));
 	ADD_RESOURCE("EnemyHp", CImage::CreateImage("Image/HP(仮).png"));
 	ADD_RESOURCE("Portion1", CImage::CreateImage("Image/Portion1.PNG"));
-	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp1.png",Trapp1_anim_data, 500, 500));
-	ADD_RESOURCE("Trapp2", CImage::CreateImage("Image/Trapp2.png", Trapp1_anim_data, 500, 500));
-
+	ADD_RESOURCE("Trapp1", CImage::CreateImage("Image/Trapp3.png",Trapp1_anim_data, 500, 500));
+	ADD_RESOURCE("Trapp2", CImage::CreateImage("Image/Trapp2.png", Trapp2_anim_data, 500, 500));
+	ADD_RESOURCE("Trapp3", CImage::CreateImage("Image/Trapp1.png", Trapp3_anim_data, 500, 500));
+	ADD_RESOURCE("Trapp4", CImage::CreateImage("Image/Trapp4.png"));
 	//-----------------------------------------------------
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる

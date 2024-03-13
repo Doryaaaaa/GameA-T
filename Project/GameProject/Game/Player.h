@@ -24,7 +24,11 @@ private:
 	//攻撃番号
 	int m_attack_no;
 	//加速度
-	float m_speed;
+	int m_speed;
+	//スクロールスピード
+	int move_Scrollspeed;
+	//効果時間
+	float waitcnt;
 
 public:
     Player(const CVector3D& pos);

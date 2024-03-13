@@ -8,6 +8,8 @@ public:
 
 	void Update();
 	void Draw();
+	void Collision(Task* b);
+	bool Trappflag;
 private:
 	CImage m_img;
 };
