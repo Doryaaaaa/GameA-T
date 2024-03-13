@@ -71,7 +71,7 @@ bool ObjectBase::CollisionRect(ObjectBase* b1, ObjectBase* b2)
     //‹éŒ`“¯Žm‚Ì”»’è
     if (rect1.left <= rect2.right && rect1.right >= rect2.left &&
         rect1.top <= rect2.bottom && rect1.bottom >= rect2.top &&
-        rect1.front<= rect2.back && rect1.back <= rect2.front)
+        rect1.front<= rect2.back && rect1.back >= rect2.front)
         return true;
 
     return false;

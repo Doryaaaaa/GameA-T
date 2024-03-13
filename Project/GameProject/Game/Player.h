@@ -18,16 +18,6 @@ public:
 
 class Player :public ObjectBase {
 private:
-	//後で消す
-	enum {
-		eState_Run,
-		eState_Attack,
-		eState_SpeedUp,
-		eState_SpeedDown,
-		
-	};
-	int m_state;
-
     CImage m_img;
 	//着地フラグ
 	bool m_is_ground;
@@ -35,8 +25,6 @@ private:
 	int m_attack_no;
 	//加速度
 	float m_speed;
-	void StateSpeedUp();
-	void StateSpeedDown();
 
 public:
     Player(const CVector3D& pos);
