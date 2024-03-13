@@ -72,7 +72,7 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     //中心位置設定
     m_img.SetCenter(200, 380);
     //当たり判定
-    m_rect = Rect3D(-100, -300,-10, 100, 0,10);
+    m_rect = Rect3D(-100, -300,-50, 100, 0,50);
     //着地フラグ
     m_is_ground = false;
     //攻撃番号
@@ -195,9 +195,9 @@ void Player::Collision(Task* b)
         }
    }
    switch (b->m_type) {
-   case eType_Portion1Manager:
+   case eType_Portion1:
        //Portion1Manager型へキャスト、型変換出来たら
-       if (Portion1Manager* P1 = dynamic_cast<Portion1Manager*>(b)) {
+       if (Portion1* P1 = dynamic_cast<Portion1*>(b)) {
            //プレイヤーがアイテムと当たったら
            if (ObjectBase::CollisionRect(this, P1)) {
                //アイテムが消える
