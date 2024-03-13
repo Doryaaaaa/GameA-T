@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Field.h"
 #include "Portion1.h"
+#include "Trapp1.h"
 #include "Task/TaskManager.h"
 #include "Task/Task.h"
 
@@ -43,7 +44,9 @@ TexAnim run_by_anim[] = {
 
 TexAnim damage_by_anim[] = {
     {20,6},
-    {21,6},   
+    {21,6}, 
+    {20,6},
+    {21,6},
 };
 
 TexAnim jumpup_by_anim[] = {
@@ -82,20 +85,6 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
 
 }
 
-//後で消す
-void Player::StateSpeedUp() {
-    if (m_state = eState_SpeedUp) {
-        m_speed += 1;
-    }
-
-}
-//後で消す
-void Player::StateSpeedDown() {
-    if (m_state = eState_SpeedDown) {
-        m_speed -= 1;
-    }
-}
-
 void Player::Update() {
    
     //移動スピード
@@ -114,8 +103,7 @@ void Player::Update() {
         m_pos.z += move_speed;
     }
 
-    //スクロールのスピード
-   
+    //スクロールのスピード  
     const int move_Scrollspeed = 15;
     m_pos.x += move_Scrollspeed;
 
@@ -195,16 +183,37 @@ void Player::Collision(Task* b)
         }
    }
    switch (b->m_type) {
-   case eType_Portion1:
+
+    case eType_Portion1:
        //Portion1Manager型へキャスト、型変換出来たら
        if (Portion1* P1 = dynamic_cast<Portion1*>(b)) {
            //プレイヤーがアイテムと当たったら
            if (ObjectBase::CollisionRect(this, P1)) {
                //アイテムが消える
                P1->Kill();
+               //加速
+
            }
        }
+
+    case eType_Trapp1:
+        //Portion1Manager型へキャスト、型変換出来たら
+        if (Trapp1* T1 = dynamic_cast<Trapp1*>(b)) {
+            //プレイヤーがアイテムと当たったら
+            if (ObjectBase::CollisionRect(this, T1)) {
+                //ダメージアニメーション
+                m_img.ChangeAnimation(1);
+                //減速
+                
+                //アニメーションが終了したら
+                if (m_img.CheckAnimationEnd()) {
+                    m_img.ChangeAnimation(0);
+                }
+            }
+        }
+
+
    }
-   
+
 }
 
