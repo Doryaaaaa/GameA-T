@@ -1,5 +1,9 @@
 #include"Enemy.h"
 #include"Field.h"
+#include"Trapp1.h"
+#include"Task/Task.h"
+#include"Task/TaskManager.h"
+
 TexAnim stand_by_anim[] = {
 	{0,6},
     {1,6},
@@ -17,7 +21,7 @@ Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_img.ChangeAnimation(0);
 	m_img.SetCenter(200,380);
 	m_is_ground = false;
-	m_rect = Rect3D(-100, -400,-10, 100, 0,10);
+	m_rect = Rect3D(-200, -400,-400, 200, 0,0);
 
 }
 
@@ -103,4 +107,15 @@ void Enemy::Collision(Task* b)
 			}
 		}
 	}
+		/*switch (b->m_type) {
+		case eType_Trapp1:
+			if (Trapp1* P1 = dynamic_cast<Trapp1*>(b)) {
+				if (ObjectBase::CollisionRect(this, P1)) {
+					P1->Kill();
+					
+
+				}
+				break;
+			}
+	}*/
 }

@@ -27,6 +27,8 @@ enum {
     eType_Trapp1Manager,
     eType_Trapp2,
     eType_Trapp2Manager,
+    eType_Trapp3,
+    eType_Trapp4,
 };
 //タスクの優先度
 enum class TaskPrio
