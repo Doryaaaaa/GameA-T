@@ -5,7 +5,6 @@
 #include"Game/Enemy.h"
 #include"Game/EnemyHp.h"
 #include"Game/Field.h"
-#include"Game/Timer.h"
 #include "Game/Portion1.h"
 #include"Game/Trapp1.h"
 #include"Game/Trapp1Manager.h"
@@ -89,6 +88,9 @@ void Init(void)
 	ADD_RESOURCE("Trapp2", CImage::CreateImage("Image/Trapp2.png", Trapp2_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp3", CImage::CreateImage("Image/Trapp1.png", Trapp3_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp4", CImage::CreateImage("Image/Trapp4.png"));
+	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
+
+
 	//-----------------------------------------------------
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
@@ -102,7 +104,7 @@ new Trapp2Manager();
 //影描画クラスの生成
 new ShadowManager();
 (new Enemy(CVector3D(2200,2800,0)));
-new Timer();
+new EnemyHp(CVector2D(50, 1900));
 
 
 
