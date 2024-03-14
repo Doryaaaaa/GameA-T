@@ -12,10 +12,11 @@ public:
 	int hp;
 	//最大HP
 	int max_hp;
+	CVector2D m_pos;
 public:
 	//コンストラクタ
 	EnemyHp(const CVector2D& pos);
 	//描画
-	void UpDate();
+	void Update();
 	void Draw();
 };

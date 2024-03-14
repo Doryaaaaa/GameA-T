@@ -1,6 +1,6 @@
 #include"Enemy.h"
 #include"Field.h"
-#include"Trapp1.h"
+#include"Trapp3.h"
 #include"Task/Task.h"
 #include"Task/TaskManager.h"
 
@@ -15,18 +15,19 @@ TexAnimData enemy_anim_data[] = {
 };
 Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_pos = pos;
-	
+	m_hp = 100;
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	m_img.SetSize(400, 400);
 	m_img.ChangeAnimation(0);
 	m_img.SetCenter(200,380);
 	m_is_ground = false;
 	m_rect = Rect3D(-200, -400,-400, 200, 0,0);
-
+	m_hpGeag=new EnemyHp(CVector2D(0, 100));
 }
 
 
 void Enemy::Update() {
+	m_hpGeag->hp = m_hp;
 	const int move_speed = 4;
 	const int move_Scrollspeed = 15;
 	m_pos.x += move_Scrollspeed;
@@ -71,8 +72,13 @@ void Enemy::Update() {
 		m_pos.z = -340;
 		break;
 	}
-	
+	if (PUSH(CInput::eButton1)) {
+		m_hp -= 10;
+	}
+	if (m_hp <= 0) {
+		Kill();
 
+	}
 
 	m_vec.y += GRAVITY;
 	m_pos += m_vec;
@@ -107,15 +113,15 @@ void Enemy::Collision(Task* b)
 			}
 		}
 	}
-		/*switch (b->m_type) {
-		case eType_Trapp1:
-			if (Trapp1* P1 = dynamic_cast<Trapp1*>(b)) {
+		switch (b->m_type) {
+		case eType_Trapp3:
+			if (Trapp3* P1 = dynamic_cast<Trapp3*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
 					P1->Kill();
-					
+					m_hp -= 10;
 
 				}
 				break;
 			}
-	}*/
+	}
 }
