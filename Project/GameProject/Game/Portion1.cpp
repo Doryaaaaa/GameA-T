@@ -43,7 +43,7 @@ Portion1::Portion1(const CVector3D& pos) :ObjectBase(eType_Portion1) {
 	//’†SˆÊ’u
 	m_img.SetCenter(100,180);
 	//“–‚½‚è”»’è
-	m_rect = Rect3D(-50, -50,-10, 50, 0,10);
+	m_rect = Rect3D(-70, -50,-10, 70, 0,10);
 }
 
 void Portion1::Update()

@@ -22,7 +22,7 @@ Bullet::Bullet(const CVector3D& pos, int type, int attack_no) :ObjectBase(eType_
     m_pos = pos;
     m_img.SetSize(50, 50);
     m_img.SetCenter(25, 25);
-    m_rect = Rect3D(-25, -25, -20, 25, 25, 20);
+    m_rect = Rect3D(-25, -25, -15, 25, 25, 15);
     m_attack_no = attack_no;
     m_cnt = 0;
 
@@ -88,7 +88,7 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     //中心位置設定
     m_img.SetCenter(200, 380);
     //当たり判定
-    m_rect = Rect3D(-100, -300,-50, 100, 0,50);
+    m_rect = Rect3D(-100, -300,-30, 100, 0,30);
     //着地フラグ
     m_is_ground = false;
     //攻撃番号
