@@ -29,6 +29,8 @@ private:
 	int move_Scrollspeed;
 	//Œø‰ÊŠÔ
 	float waitcnt;
+	//ˆÚ“®§Œä
+	int m_m;
 
 public:
     Player(const CVector3D& pos);

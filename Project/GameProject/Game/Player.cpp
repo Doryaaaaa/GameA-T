@@ -2,6 +2,7 @@
 #include "Field.h"
 #include "Portion1.h"
 #include "Trapp1.h"
+#include "Trapp3.h"
 #include "Task/TaskManager.h"
 #include "Task/Task.h"
 
@@ -10,7 +11,7 @@ Bullet::Bullet(const CVector2D& pos, bool flip, int type, int attack_no) :Object
     m_pos = pos;
     m_img.SetSize(50, 50);
     m_img.SetCenter(25, 25);
-    m_rect = Rect3D(-100, -300, -10, 100, 0, 10);
+    m_rect = Rect3D(-25, -25, -20, 25, 25, 20);
     m_attack_no = attack_no;
     m_cnt = 0;
 
@@ -86,7 +87,9 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     //スクロール時間
     move_Scrollspeed=15;
     //効果時間
-    waitcnt = 10;
+    waitcnt = 0;
+
+    m_m=2;
 }
 
 void Player::Update() {
@@ -97,14 +100,49 @@ void Player::Update() {
     const float jump_pow = 15;
 
     //上移動（上キー）&&　スクリーン制限
-    if (HOLD(CInput::eButton6) && m_pos.z>-390) {
-        
-        m_pos.z -= move_speed;
+    if (PUSH(CInput::eButton6) && m_pos.z>-390) {
+        m_m += 1;
+        switch (m_m)
+        {
+        case 0:
+            m_m = 1;
+            break;
+        case 1:
+            m_pos.z = 0;
+            break;
+        case 2:
+            m_pos.z = -170;
+            break;
+        case 3:
+            m_pos.z = -340;
+            break;
+        case 4:
+            m_m = 3;
+            break;
+        }
     }
 
     //下移動（下キー）
-    if (HOLD(CInput::eButton7) && m_pos.z < -0) {
-        m_pos.z += move_speed;
+    if (PUSH(CInput::eButton7) && m_pos.z < -0) {
+        m_m -= 1;
+        switch (m_m)
+        {
+        case 0:
+            m_m = 1;
+            break;
+        case 1:
+            m_pos.z = 0;
+            break;
+        case 2:
+            m_pos.z = -170;
+            break;
+        case 3:
+            m_pos.z = -340;
+            break;
+        case 4:
+            m_m = 3;
+            break;
+        }
     }
 
     //スクロールのスピード  
@@ -216,19 +254,25 @@ void Player::Collision(Task* b)
                P1->Kill();
                //加速
                m_speed = 1;
+               //効果時間
                waitcnt = 20;
            }
        }
 
-    case eType_Trapp1:
+    case eType_Trapp3:
         //Portion1Manager型へキャスト、型変換出来たら
-        if (Trapp1* T1 = dynamic_cast<Trapp1*>(b)) {
+        if (Trapp3* T3 = dynamic_cast<Trapp3*>(b)) {
             //プレイヤーがアイテムと当たったら
-            if (ObjectBase::CollisionRect(this, T1)) {
+            if (ObjectBase::CollisionRect(this, T3)) {
+                //ジャンプ中なら
+                if (!m_is_ground) {
+                   
+                }
                 //ダメージアニメーション
                 m_img.ChangeAnimation(1);
                 //減速
                 m_speed = -1;
+                //効果時間
                 waitcnt = 20;
                 //アニメーションが終了したら
                 if (m_img.CheckAnimationEnd()) {
@@ -236,6 +280,7 @@ void Player::Collision(Task* b)
                 }
             }
         }
+
 
 
    }
