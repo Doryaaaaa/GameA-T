@@ -8,7 +8,7 @@ private:
 	int m_attack_no;
 	int m_cnt;
 public:
-	Bullet(const CVector2D& pos, bool flip, int type, int attack_no);
+	Bullet(const CVector3D& pos, int type, int attack_no);
 	void Update();
 	void Draw();
 	int GetAttackNo() {
@@ -45,3 +45,4 @@ extern TexAnimData player_anim_data[];
 extern TexAnimData damage_anim_data[];
 extern TexAnimData jumpup_anim_data[];
 extern TexAnimData jumpdown_anim_data[];
+extern TexAnimData bullet_anim_data[];

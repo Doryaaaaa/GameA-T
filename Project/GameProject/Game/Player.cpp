@@ -6,8 +6,19 @@
 #include "Task/TaskManager.h"
 #include "Task/Task.h"
 
-Bullet::Bullet(const CVector2D& pos, bool flip, int type, int attack_no) :ObjectBase(eType_Bullet) {
-    m_img = COPY_RESOURCE("Effect_Bullet", CImage);
+TexAnim bullet_by_anim[] = {
+    {0,6},
+    {1,6},
+    
+};
+TexAnimData bullet_anim_data[] = {
+      ANIMDATA(bullet_by_anim),
+      
+};
+
+Bullet::Bullet(const CVector3D& pos, int type, int attack_no) :ObjectBase(eType_Bullet) {
+    m_img = COPY_RESOURCE("Bullet", CImage);
+    m_img.ChangeAnimation(0);
     m_pos = pos;
     m_img.SetSize(50, 50);
     m_img.SetCenter(25, 25);
@@ -18,12 +29,12 @@ Bullet::Bullet(const CVector2D& pos, bool flip, int type, int attack_no) :Object
 }
 void Bullet::Update() {
     //玉のスピードと向き
-    const int move_speed = 10;
-    m_pos.x -= move_speed;
+    const int move_speed = 100;
+    m_pos.x += move_speed;
     //スクリーンの端までいくと消える
-    if (m_pos.x>m_scroll.x) {
+    /*if (m_pos.x>m_scroll.x) {
         Kill();
-    }
+    }*/
 
 }
 void Bullet::Draw() {
@@ -170,8 +181,8 @@ void Player::Update() {
 
 
     //攻撃(左クリック)
-    if (HOLD(CInput::eMouseL)) {
-        //(new Bullet(CVector3D(m_pos)));
+    if (PUSH(CInput::eMouseL)) {
+        (new Bullet(CVector3D(m_pos.x,m_pos.y-150,m_pos.z), eType_Bullet, m_attack_no));
     }
 
 //ジャンプ(スペース)
