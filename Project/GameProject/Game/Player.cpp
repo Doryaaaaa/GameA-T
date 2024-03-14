@@ -28,13 +28,13 @@ Bullet::Bullet(const CVector3D& pos, int type, int attack_no) :ObjectBase(eType_
 
 }
 void Bullet::Update() {
-    //玉のスピードと向き
+    //弾のスピードと向き
     const int move_speed = 100;
     m_pos.x += move_speed;
-    //スクリーンの端までいくと消える
-    /*if (m_pos.x>m_scroll.x) {
+    //スクロール値＋数値分の座標を超えたら消える
+    if (m_pos.x> m_scroll.x+2500) {
         Kill();
-    }*/
+    }
 
 }
 void Bullet::Draw() {
@@ -99,8 +99,10 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     move_Scrollspeed=15;
     //効果時間
     waitcnt = 0;
-
+    //移動制御用
     m_m=2;
+    //バースト撃ち
+    m_bcnt=0;
 }
 
 void Player::Update() {
@@ -157,8 +159,9 @@ void Player::Update() {
     }
 
     //スクロールのスピード  
-    m_pos.x += move_Scrollspeed;    
+    m_pos.x += move_Scrollspeed;
 
+    //加速処理
     if (m_speed > 0) {
         move_Scrollspeed += 1;
         if (waitcnt > 0) {
@@ -167,6 +170,7 @@ void Player::Update() {
         
     }
 
+    //減速処理
     else if (m_speed < 0) {
         move_Scrollspeed -= 1;
         if (waitcnt > 0) {
@@ -174,15 +178,17 @@ void Player::Update() {
         }
     }
 
+    //効果時間が終わると元のスピードに戻る
     if (waitcnt==0) {
         move_Scrollspeed = 15;
     }
     
 
 
-    //攻撃(左クリック)
-    if (PUSH(CInput::eMouseL)) {
-        (new Bullet(CVector3D(m_pos.x,m_pos.y-150,m_pos.z), eType_Bullet, m_attack_no));
+    //攻撃(マウス左ボタン)
+    if (PUSH(CInput::eMouseL)) {      
+        (new Bullet(CVector3D(m_pos.x, m_pos.y - 150, m_pos.z), eType_Bullet, m_attack_no));
+
     }
 
 //ジャンプ(スペース)
@@ -259,7 +265,7 @@ void Player::Collision(Task* b)
     case eType_Portion1:
        //Portion1Manager型へキャスト、型変換出来たら
        if (Portion1* P1 = dynamic_cast<Portion1*>(b)) {
-           //プレイヤーがアイテムと当たったら
+           //プレイヤーが加速ポーションと当たったら
            if (ObjectBase::CollisionRect(this, P1)) {
                //アイテムが消える
                P1->Kill();
@@ -271,9 +277,9 @@ void Player::Collision(Task* b)
        }
 
     case eType_Trapp3:
-        //Portion1Manager型へキャスト、型変換出来たら
+        //Trapp3型へキャスト、型変換出来たら
         if (Trapp3* T3 = dynamic_cast<Trapp3*>(b)) {
-            //プレイヤーがアイテムと当たったら
+            //プレイヤーが針トラップと当たったら
             if (ObjectBase::CollisionRect(this, T3)) {
                 //ジャンプ中なら
                 if (!m_is_ground) {
@@ -292,6 +298,27 @@ void Player::Collision(Task* b)
             }
         }
 
+    case eType_Trapp4:
+        //Trapp4型へキャスト、型変換出来たら
+        if (Trapp4* T4 = dynamic_cast<Trapp4*>(b)) {
+            //プレイヤーが落とし穴に当たったら
+            if (ObjectBase::CollisionRect(this, T4)) {
+                //ジャンプ中なら
+                if (!m_is_ground) {
+
+                }
+                //ダメージアニメーション
+                m_img.ChangeAnimation(1);
+                //減速
+                m_speed = -1;
+                //効果時間
+                waitcnt = 20;
+                //アニメーションが終了したら
+                if (m_img.CheckAnimationEnd()) {
+                    m_img.ChangeAnimation(0);
+                }
+            }
+        }
 
 
    }

@@ -4,6 +4,8 @@
 class Portion1Manager : public ObjectBase {
 private:
 	int m_cnt;
+	//‚Ç‚Ìƒ‰ƒCƒ“‚É”z’u‚·‚é‚©‚Ì”
+	int m_rcnt;
 public:
 	Portion1Manager();
 	void Update();
