@@ -22,7 +22,7 @@ enum {
     eType_Player_Attack,
     eType_Enemy_Attack,
     eType_Effect,
-    eType_UI,
+    eType_Timer,
     eType_Scene,
     eType_Trapp1,
     eType_Trapp1Manager,
@@ -37,6 +37,7 @@ enum class TaskPrio
     Field,     //フィールド
     Shadow,    //オブジェクトの影
     EnemyHp,   //エネミーのHPバー
+    Timer,
     Object,    //ゲーム中のオブジェクト
     TrappManager,   //全てを呼び出す
 

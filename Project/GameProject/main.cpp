@@ -5,6 +5,7 @@
 #include"Game/Enemy.h"
 #include"Game/EnemyHp.h"
 #include"Game/Field.h"
+#include"Game/Timer.h"
 #include "Game/Portion1.h"
 #include"Game/Trapp1.h"
 #include"Game/Trapp1Manager.h"
@@ -102,7 +103,7 @@ new Trapp2Manager();
 new ShadowManager();
 (new Enemy(CVector3D(2200,2800,0)));
 new EnemyHp(CVector2D(50, 1900));
-
+new Timer();
 
 
 
