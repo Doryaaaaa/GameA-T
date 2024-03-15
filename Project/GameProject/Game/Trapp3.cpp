@@ -38,7 +38,7 @@ void Trapp3::Draw() {
 		GetScreenPos(m_pos),
 		CVector2D(200, 100),
 		CVector4D(1, 0, 0, 0.5f));*/
-	DrawRect();
+	//DrawRect();
 }
 //—Ž‚Æ‚µŒŠ
 Trapp4::Trapp4(const CVector3D& pos) :ObjectBase(eType_Trapp4) {
@@ -64,5 +64,5 @@ void Trapp4::Draw() {
 		GetScreenPos(m_pos),
 		CVector2D(200, 100),
 		CVector4D(1, 0, 0, 0.5f));*/
-	DrawRect();
+	//DrawRect();
 }

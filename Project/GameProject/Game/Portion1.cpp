@@ -65,5 +65,5 @@ void Portion1::Draw()
         GetScreenPos(m_pos),
         CVector2D(16,16),
         CVector4D(1, 0, 0, 0.5f));*/
-	DrawRect();
+	//DrawRect();
 }

@@ -97,13 +97,13 @@ void Enemy::Update() {
 void Enemy::Draw() {
 	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
-	Utility::DrawQuad(
+/*	Utility::DrawQuad(
 		GetScreenPos(m_pos),
 		//‹éŒ`Ý’è
 		CVector2D(200, 16),
-		CVector4D(1, 0, 0, 0.5f));
+		CVector4D(1, 0, 0, 0.5f));*/
 
-	DrawRect();
+	//DrawRect();
 }
 void Enemy::Collision(Task* b)
 {
@@ -123,7 +123,7 @@ void Enemy::Collision(Task* b)
 		}
 	}
 		switch (b->m_type) {
-		case eType_Trapp3:
+		case eType_Trapp3://ƒgƒQ
 			if (Trapp3* P1 = dynamic_cast<Trapp3*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
 					if (m_Damage==false) {
@@ -135,7 +135,7 @@ void Enemy::Collision(Task* b)
 			}
 	}
 		switch (b->m_type) {
-		case eType_Trapp4:
+		case eType_Trapp4://—Ž‚Æ‚µŒŠ
 			if (Trapp4* P1 = dynamic_cast<Trapp4*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
 					if (m_Damage == false) {

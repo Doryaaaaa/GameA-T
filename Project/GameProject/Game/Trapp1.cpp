@@ -42,7 +42,7 @@ void Trapp1::Draw() {
 		GetScreenPos(m_pos),
 		CVector2D(200, 100),
 		CVector4D(1, 0, 0, 0.5f));*/
-	DrawRect();
+	//DrawRect();
 }
 
 void Trapp1::Collision(Task* b)
