@@ -37,7 +37,7 @@ enum class TaskPrio
     Field,     //フィールド
     Shadow,    //オブジェクトの影
     EnemyHp,   //エネミーのHPバー
-    Timer,
+    Timer,     //タイマー
     Object,    //ゲーム中のオブジェクト
     TrappManager,   //全てを呼び出す
 

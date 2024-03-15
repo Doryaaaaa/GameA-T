@@ -46,6 +46,7 @@ Trapp4::Trapp4(const CVector3D& pos) :ObjectBase(eType_Trapp4) {
 	m_rect = Rect3D(-100, -80, -50, 100, 80, 50);
 }
 void Trapp4::Update() {
+
 	//const int move_speed = 5;
 	//m_pos.x -= move_speed;
 	//m_vec.y += GRAVITY;

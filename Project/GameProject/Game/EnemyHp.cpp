@@ -15,8 +15,6 @@ EnemyHp::EnemyHp(const CVector2D& pos) :Task(eType_EnemyHp,(int)TaskPrio::Field)
 }
 void EnemyHp::Update()
 {
-	
-	
 }
 void EnemyHp::Draw()
 {
