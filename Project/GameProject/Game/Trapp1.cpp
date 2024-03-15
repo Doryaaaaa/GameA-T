@@ -26,6 +26,9 @@ Trapp1::Trapp1(const CVector3D& pos) :ObjectBase(eType_Trapp1) {
 	Trappflag = false;
 }
 void Trapp1::Update() {
+	if (m_pos.x < m_scroll.x-600) {
+		Kill();
+	}
 	//const int move_speed = 5;
 	//m_pos.x -= move_speed;
 	//m_vec.y += GRAVITY;
