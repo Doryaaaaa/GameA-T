@@ -32,6 +32,12 @@ void Portion1Manager::Update()
 
 		//次の出現時間
 		m_cnt = Utility::Rand(60, 180);
+
+		//アイテムが画面外（左）にいったら消す　※未完成
+		if (m_scroll.x < m_scroll.x - 200) {
+			Kill();
+		}
+
 	}
 }
 
