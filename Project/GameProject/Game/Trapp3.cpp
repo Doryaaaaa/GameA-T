@@ -60,6 +60,24 @@ void Trapp3::Collision(Task* b)
 
 		}
 	}
+	switch (b->m_type) {
+	case eType_Trapp2:
+		if (ObjectBase* P1 = dynamic_cast<ObjectBase*>(b)) {
+			if (ObjectBase::CollisionRect(this, P1)) {
+				P1->Kill();
+			}
+		}
+		break;
+	}
+	switch (b->m_type) {
+	case eType_Portion1:
+		if (ObjectBase* P1 = dynamic_cast<ObjectBase*>(b)) {
+			if (ObjectBase::CollisionRect(this, P1)) {
+				P1->Kill();
+			}
+		}
+		break;
+	}
 }
 //—Ž‚Æ‚µŒŠ
 Trapp4::Trapp4(const CVector3D& pos) :ObjectBase(eType_Trapp4) {
@@ -106,5 +124,32 @@ void Trapp4::Collision(Task* b)
 			break;
 
 		}
+	}
+	switch (b->m_type) {
+	case eType_Trapp3:
+		if (ObjectBase* P1 = dynamic_cast<ObjectBase*>(b)) {
+			if (ObjectBase::CollisionRect(this, P1)) {
+				P1->Kill();
+			}
+		}
+		break;
+	}
+	switch (b->m_type) {
+	case eType_Trapp2:
+		if (ObjectBase* P1 = dynamic_cast<ObjectBase*>(b)) {
+			if (ObjectBase::CollisionRect(this, P1)) {
+				P1->Kill();
+			}
+		}
+		break;
+	}
+	switch (b->m_type) {
+	case eType_Portion1:
+		if (ObjectBase* P1 = dynamic_cast<ObjectBase*>(b)) {
+			if (ObjectBase::CollisionRect(this, P1)) {
+				P1->Kill();
+			}
+		}
+		break;
 	}
 }
