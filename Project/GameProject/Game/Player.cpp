@@ -318,11 +318,12 @@ void Player::Collision(Task* b)
                 if (!m_is_ground) {
 
                 }
-                if (m_Damage == false) {
+              
 
 
                     //ダメージアニメーション
                     m_img.ChangeAnimation(1);
+                    if (m_Damage == false) {
                     //減速
                     m_speed = -1;
                     //効果時間
