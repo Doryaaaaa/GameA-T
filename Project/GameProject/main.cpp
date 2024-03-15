@@ -104,7 +104,7 @@ new Trapp2Manager();
 //new Enemy(CVector3D(1200,0,0));
 //‰e•`‰æƒNƒ‰ƒX‚Ì¶¬
 new ShadowManager();
-(new Enemy(CVector3D(2200,2800,0)));
+(new Enemy(CVector3D(2200,2800,0),true));
 new Timer(CVector2D());
 
 

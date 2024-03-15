@@ -4,7 +4,7 @@
 
 class Enemy :public ObjectBase{
 public:
-	Enemy(const CVector3D&pos);
+	Enemy(const CVector3D&pos, bool flip);
 
 	void Update();
 	void Draw();
@@ -18,6 +18,6 @@ private:
 	int cnt;
 	bool m_is_ground;
 	bool m_Damage;
-
+	bool m_flip;
 };
 extern TexAnimData enemy_anim_data[];

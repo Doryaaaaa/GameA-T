@@ -14,7 +14,7 @@ TexAnim stand_by_anim[] = {
 TexAnimData enemy_anim_data[] = {
 	{stand_by_anim,sizeof(stand_by_anim) / sizeof(stand_by_anim[0])}
 };
-Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
+Enemy::Enemy(const CVector3D&pos, bool flip):ObjectBase(eType_Enemy) {
 	m_pos = pos;
 	m_hp = 100;
 	m_img = COPY_RESOURCE("Enemy", CImage);
@@ -25,6 +25,7 @@ Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_rect = Rect3D(-200, -400,-400, 200, 0,0);
 	m_hpGeag=new EnemyHp(CVector2D(0, 50));
 	m_Damage = false;
+	m_flip = flip;
 }
 
 
@@ -96,6 +97,7 @@ void Enemy::Update() {
 }
 void Enemy::Draw() {
 	m_img.SetPos(GetScreenPos(m_pos));
+	m_img.SetFlipH(m_flip);
 	m_img.Draw();
 /*	Utility::DrawQuad(
 		GetScreenPos(m_pos),
