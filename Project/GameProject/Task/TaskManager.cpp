@@ -182,7 +182,7 @@ void TaskManager::Draw()
 		Task* task = *itr;
 		//タスクが有効かつ、表示するのであれば、
 		//描画処理を呼び出す。
-		if (task->m_isEnable && task->m_isShow)
+		if (task->m_isEnable)
 		{
 			task->Draw();
 		}

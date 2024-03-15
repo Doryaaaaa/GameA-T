@@ -50,6 +50,9 @@ Portion1::Portion1(const CVector3D& pos) :ObjectBase(eType_Portion1) {
 	m_img.SetCenter(100,180);
 	//“–‚½‚è”»’è
 	m_rect = Rect3D(-70, -50,-10, 70, 0,10);
+	m_isShadow = true;
+	m_ShadowSize = 100;
+	m_ShadowCenter = 50;
 }
 
 void Portion1::Update()

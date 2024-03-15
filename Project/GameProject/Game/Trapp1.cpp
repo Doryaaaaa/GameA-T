@@ -24,6 +24,9 @@ Trapp1::Trapp1(const CVector3D& pos) :ObjectBase(eType_Trapp1) {
 	m_rect = Rect3D(-100, -200, -100, 100, 0, 100);	
 	m_img.ChangeAnimation(0);
 	Trappflag = false;
+	m_isShadow = true;
+	m_ShadowSize = 100;
+	m_ShadowCenter = 50;
 }
 void Trapp1::Update() {
 	if (m_pos.x < m_scroll.x-600) {

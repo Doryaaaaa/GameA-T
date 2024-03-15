@@ -54,10 +54,16 @@ public:
     int m_prio;
     //同じ優先度内の処理順番
     int m_sortOrder;
+    //
+    int m_ShadowSize;
+    //
+    int m_ShadowCenter;
     //タスクが有効かどうか
     bool m_isEnable;
     //タスクを描画するかどうか
     bool m_isShow;
+    //影を描画するかどうか
+    bool m_isShadow;
     //タスクの削除フラグ
     bool m_isKill;
 public:
@@ -109,6 +115,16 @@ public:
     /// </summary>
     /// <returns>tureならば表示する</returns>
     bool IsShow() const;
+    /// <summary>
+    /// 影を表示するかどうかを設定
+    /// </summary>
+    /// <param name="shadw">tureならば表示する</param>
+    void SetShadow(bool shadw);
+    /// <summary>
+    /// 影を表示するかどうかを取得
+    /// </summary>
+    /// <returns>tureならば表示する</returns>
+    bool IsShadow() const;
 
     //タスクを消去
     void Kill();

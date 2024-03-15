@@ -27,6 +27,10 @@ Enemy::Enemy(const CVector3D&pos, bool flip):ObjectBase(eType_Enemy) {
 	m_hpGeag=new EnemyHp(CVector2D(0, 50));
 	m_Damage = false;
 	m_flip = flip;
+	//
+	m_isShadow = true;
+	m_ShadowSize = 200;
+	m_ShadowCenter = 100;
 }
 
 

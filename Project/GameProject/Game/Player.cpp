@@ -103,6 +103,10 @@ Player::Player(const CVector3D& pos) :ObjectBase(eType_Player) {
     m_m=2;
     //バースト撃ち
     m_bcnt=0;
+    //
+    m_isShadow = true;
+    m_ShadowSize = 200;
+    m_ShadowCenter = 100;
 }
 
 void Player::Update() {
