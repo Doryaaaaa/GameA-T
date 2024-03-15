@@ -22,6 +22,9 @@ Trapp3::Trapp3(const CVector3D& pos) :ObjectBase(eType_Trapp3) {
 	m_img.ChangeAnimation(0);
 }
 void Trapp3::Update() {
+	if (m_pos.x < m_scroll.x -600) {
+		Kill();
+	}
 	//const int move_speed = 5;
 	//m_pos.x -= move_speed;
 	//m_vec.y += GRAVITY;
@@ -46,7 +49,9 @@ Trapp4::Trapp4(const CVector3D& pos) :ObjectBase(eType_Trapp4) {
 	m_rect = Rect3D(-100, -80, -50, 100, 80, 50);
 }
 void Trapp4::Update() {
-
+	if (m_pos.x < m_scroll.x - 600) {
+		Kill();
+	}
 	//const int move_speed = 5;
 	//m_pos.x -= move_speed;
 	//m_vec.y += GRAVITY;
