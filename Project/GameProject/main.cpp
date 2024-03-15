@@ -6,6 +6,7 @@
 #include"Game/EnemyHp.h"
 #include"Game/Field.h"
 #include "Game/Portion1.h"
+#include"Game/Timer.h"
 #include"Game/Trapp1.h"
 #include"Game/Trapp1Manager.h"
 #include"Game/Trapp2.h"
