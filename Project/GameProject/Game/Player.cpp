@@ -111,7 +111,13 @@ void Player::Update() {
     const int move_speed = 4;
     //ジャンプ力
     const float jump_pow = 15;
-
+    if (m_Damage == true) {
+        cnt++;
+        if (cnt > 60) {
+            m_Damage = false;
+            cnt = 0;
+        }
+    }
     //上移動（上キー）&&　スクリーン制限
     if (PUSH(CInput::eButton6) && m_pos.z>-390) {
         m_m += 1;
@@ -240,7 +246,7 @@ void Player::Draw() {
         CVector2D(16,16),
         CVector4D(1, 0, 0, 0.5f));
 */
-    DrawRect();
+   // DrawRect();
 }
 
 void Player::Collision(Task* b)
@@ -287,10 +293,15 @@ void Player::Collision(Task* b)
                 }
                 //ダメージアニメーション
                 m_img.ChangeAnimation(1);
+                if (m_Damage == false) {
+
+           
                 //減速
                 m_speed = -1;
                 //効果時間
                 waitcnt = 20;
+                m_Damage = true;
+                }
                 //アニメーションが終了したら
                 if (m_img.CheckAnimationEnd()) {
                     m_img.ChangeAnimation(0);
@@ -307,12 +318,18 @@ void Player::Collision(Task* b)
                 if (!m_is_ground) {
 
                 }
-                //ダメージアニメーション
-                m_img.ChangeAnimation(1);
-                //減速
-                m_speed = -1;
-                //効果時間
-                waitcnt = 20;
+                if (m_Damage == false) {
+
+
+                    //ダメージアニメーション
+                    m_img.ChangeAnimation(1);
+                    //減速
+                    m_speed = -1;
+                    //効果時間
+                    waitcnt = 20;
+                    m_Damage = true;
+            
+                }
                 //アニメーションが終了したら
                 if (m_img.CheckAnimationEnd()) {
                     m_img.ChangeAnimation(0);
