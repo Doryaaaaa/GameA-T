@@ -8,6 +8,7 @@ Task::Task(int type, int prio)
     , m_isEnable(true)
     , m_isShow(true)
     , m_isKill(false)
+    ,m_isShadow(true)
 {
     //タスクの生成と同時にTaskManagerに自身を追加
     TaskManager::Add(this);
@@ -74,6 +75,16 @@ bool Task::IsShow() const
 {
     return m_isShow;
 }
+//影を表示するかどうかを設定
+bool Task::SetShadow(bool shadw)
+{
+    m_isShadow = shadw;
+}
+//影を表示するかどうかを取得
+bool Task::IsShadow() const
+{
+    return m_isShadow;
+}
 
 //タスクを消去
 void Task::Kill()
@@ -86,6 +97,8 @@ bool Task::IsKill()
 {
     return m_isKill;
 }
+
+
 
 void Task::Update()
 {

@@ -33,7 +33,7 @@ void ShadowManager::Draw()
 	for (Task* task : objects)
 	{
 		ObjectBase* obj = dynamic_cast<ObjectBase*>(task);
-		if (obj == nullptr)continue;
+		if (obj == nullptr && m_isShadow == true)continue;
 
 		//各オブジェクトの座標に影の画像を描画
 		m_img.SetPos(obj->GetScreenPos(CVector3D(obj->m_pos.x,1000, obj->m_pos.z)));
