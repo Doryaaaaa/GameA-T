@@ -44,9 +44,6 @@
     <ClCompile Include="Game\Trapp1Manager.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Trapp2Manager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Portion3.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -116,9 +113,6 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Trapp1Manager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Trapp2Manager.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Portion3.h">

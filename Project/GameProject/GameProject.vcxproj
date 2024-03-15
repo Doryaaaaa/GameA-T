@@ -27,7 +27,6 @@
     <ClCompile Include="Game\Trapp2.cpp" />
     <ClCompile Include="Game\Trapp3.cpp" />
     <ClCompile Include="Game\Trapp1Manager.cpp" />
-    <ClCompile Include="Game\Trapp2Manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Task\ObjectBase.cpp" />
     <ClCompile Include="Task\ShadowManager.cpp" />
@@ -51,7 +50,6 @@
     <ClInclude Include="Game\Trapp1.h" />
     <ClInclude Include="Game\Trapp3.h" />
     <ClInclude Include="Game\Trapp1Manager.h" />
-    <ClInclude Include="Game\Trapp2Manager.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Task\ObjectBase.h" />
     <ClInclude Include="Task\ShadowManager.h" />
