@@ -54,6 +54,10 @@ public:
     int m_prio;
     //同じ優先度内の処理順番
     int m_sortOrder;
+    //
+    int m_ShadowSize;
+    //
+    int m_ShadowCenter;
     //タスクが有効かどうか
     bool m_isEnable;
     //タスクを描画するかどうか
@@ -115,7 +119,7 @@ public:
     /// 影を表示するかどうかを設定
     /// </summary>
     /// <param name="shadw">tureならば表示する</param>
-    bool SetShadow(bool shadw);
+    void SetShadow(bool shadw);
     /// <summary>
     /// 影を表示するかどうかを取得
     /// </summary>

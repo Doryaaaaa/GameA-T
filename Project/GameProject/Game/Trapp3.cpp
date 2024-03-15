@@ -20,6 +20,7 @@ Trapp3::Trapp3(const CVector3D& pos) :ObjectBase(eType_Trapp3) {
 	m_img.SetCenter(110, 160);
 	m_rect = Rect3D(-100, -100, -50, 100, 30, 50);
 	m_img.ChangeAnimation(0);
+	m_isShadow = false;
 }
 void Trapp3::Update() {
 	if (m_pos.x < m_scroll.x -600) {
@@ -86,6 +87,7 @@ Trapp4::Trapp4(const CVector3D& pos) :ObjectBase(eType_Trapp4) {
 	m_img.SetSize(200, 200);
 	m_img.SetCenter(100, 100);
 	m_rect = Rect3D(-100, -80, -50, 100, 80, 50);
+	m_isShadow = false;
 }
 void Trapp4::Update() {
 	if (m_pos.x < m_scroll.x - 600) {

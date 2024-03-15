@@ -5,6 +5,8 @@ Task::Task(int type, int prio)
     :m_type(type)
     , m_prio(prio)
     , m_sortOrder(0)
+    , m_ShadowSize(0)
+    , m_ShadowCenter(0)
     , m_isEnable(true)
     , m_isShow(true)
     , m_isKill(false)
@@ -76,7 +78,7 @@ bool Task::IsShow() const
     return m_isShow;
 }
 //‰e‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©‚ğİ’è
-bool Task::SetShadow(bool shadw)
+void Task::SetShadow(bool shadw)
 {
     m_isShadow = shadw;
 }
