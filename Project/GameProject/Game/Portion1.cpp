@@ -11,10 +11,27 @@ void Portion1Manager::Update()
 	m_cnt--;
 	//アイテム出現
 	if (m_cnt <= 0) {
-		//X軸は2000～2500の間、Y軸は500～1080の間でランダム
-		(new Portion1(CVector3D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f),1000, Utility::Rand(-380.0f,0.0f))));
+		//どこに配置するためのランダムな数字
+		m_rcnt= Utility::Rand(0,300);
+
+		if (m_rcnt < 100) {
+			//アイテム出現　上
+			(new Portion1(CVector3D(m_scroll.x+2000,1000,-310)));
+		}
+		else if (m_rcnt < 200) {
+			//アイテム出現　真ん中
+			(new Portion1(CVector3D(m_scroll.x + 2000, 1000, -170)));
+		}
+		else {
+			//アイテム出現 下
+			(new Portion1(CVector3D(m_scroll.x + 2000, 1000, -30)));
+		}
+
+		//X軸は2000～2500の間、Y軸は1000の間,Z軸は-380～0の間でランダム
+		//(new Portion1(CVector3D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f),1000, Utility::Rand(-380.0f,0.0f))));
+
 		//次の出現時間
-		m_cnt = Utility::Rand(40, 120);
+		m_cnt = Utility::Rand(60, 180);
 	}
 }
 
@@ -26,7 +43,7 @@ Portion1::Portion1(const CVector3D& pos) :ObjectBase(eType_Portion1) {
 	//中心位置
 	m_img.SetCenter(100,180);
 	//当たり判定
-	m_rect = Rect3D(-50, -50,-10, 50, 0,10);
+	m_rect = Rect3D(-70, -50,-10, 70, 0,10);
 }
 
 void Portion1::Update()

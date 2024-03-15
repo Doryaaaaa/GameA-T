@@ -7,8 +7,9 @@ private:
 	CImage m_img;
 	int m_attack_no;
 	int m_cnt;
+	int waitcnt;
 public:
-	Bullet(const CVector2D& pos, bool flip, int type, int attack_no);
+	Bullet(const CVector3D& pos, int type, int attack_no);
 	void Update();
 	void Draw();
 	int GetAttackNo() {
@@ -29,6 +30,10 @@ private:
 	int move_Scrollspeed;
 	//Œø‰ÊŠÔ
 	float waitcnt;
+	//ˆÚ“®§Œä
+	int m_m;
+
+	int m_bcnt;
 
 public:
     Player(const CVector3D& pos);
@@ -43,3 +48,4 @@ extern TexAnimData player_anim_data[];
 extern TexAnimData damage_anim_data[];
 extern TexAnimData jumpup_anim_data[];
 extern TexAnimData jumpdown_anim_data[];
+extern TexAnimData bullet_anim_data[];

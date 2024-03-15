@@ -5,7 +5,6 @@
 #include"Game/Enemy.h"
 #include"Game/EnemyHp.h"
 #include"Game/Field.h"
-#include"Game/Timer.h"
 #include "Game/Portion1.h"
 #include"Game/Trapp1.h"
 #include"Game/Trapp1Manager.h"
@@ -89,6 +88,9 @@ void Init(void)
 	ADD_RESOURCE("Trapp2", CImage::CreateImage("Image/Trapp2.png", Trapp2_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp3", CImage::CreateImage("Image/Trapp1.png", Trapp3_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp4", CImage::CreateImage("Image/Trapp4.png"));
+	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
+
+
 	//-----------------------------------------------------
 	//‰Šú‰»‚Ì–½—ß‚ğ‘‚­
 	//ƒQ[ƒ€‹N“®‚Éˆê“x‚¾‚¯ŒÄ‚Î‚ê‚é
