@@ -8,16 +8,16 @@ Timer::Timer(const CVector2D& pos) :Task(eType_Timer, (int)TaskPrio::Timer)
 
 void Timer::Draw()
 {
-    int score = 60;
+    int score = 6000;
     while (score != 0) {
         score--;
-        if(score == 0) {
+        if(score < 0) {
             score = 60;
             break;
         }
     }
    
-    for (int i = 0; i < 2; i++, score /= 10) {
+    for (int i = 0; i < 5; i++, score /= 10) {
         int s = score % 10;
         m_img.SetRect(500 * s, 0, 500 * s + 500, 500);
         m_img.SetSize(100, 100);
