@@ -11,6 +11,7 @@ TexAnim stand_by_anim[] = {
     {2,6},
     {3,6},
 };
+
 TexAnimData enemy_anim_data[] = {
 	{stand_by_anim,sizeof(stand_by_anim) / sizeof(stand_by_anim[0])}
 };
@@ -131,6 +132,7 @@ void Enemy::Collision(Task* b)
 					if (m_Damage==false) {
 						m_hp -= 5;
 						m_Damage = true;
+				
 					}
 				}
 				break;
