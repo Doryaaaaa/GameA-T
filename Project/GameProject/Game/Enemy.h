@@ -17,5 +17,6 @@ private:
 	int m_cnt;
 	int cnt;
 	bool m_is_ground;
+	bool m_Damage;
 };
 extern TexAnimData enemy_anim_data[];

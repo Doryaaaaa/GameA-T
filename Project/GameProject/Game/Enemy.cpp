@@ -1,5 +1,6 @@
 #include"Enemy.h"
 #include"Field.h"
+#include"Player.h"
 #include"Trapp3.h"
 #include"Task/Task.h"
 #include"Task/TaskManager.h"
@@ -23,6 +24,7 @@ Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_is_ground = false;
 	m_rect = Rect3D(-200, -400,-400, 200, 0,0);
 	m_hpGeag=new EnemyHp(CVector2D(0, 100));
+	m_Damage = false;
 }
 
 
@@ -31,6 +33,13 @@ void Enemy::Update() {
 	const int move_speed = 4;
 	const int move_Scrollspeed = 15;
 	m_pos.x += move_Scrollspeed;
+	if (m_Damage==true) {
+		cnt++;
+		if (cnt>60) {
+			m_Damage = false;
+			cnt = 0;
+		}
+	}
 	//m_cnt=0;
 	m_cnt++;
 	/*カウントが０より小さい場合カウントがプラスされる
@@ -117,17 +126,32 @@ void Enemy::Collision(Task* b)
 		case eType_Trapp3:
 			if (Trapp3* P1 = dynamic_cast<Trapp3*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
-					m_hp -= 10;
-
+					if (m_Damage==false) {
+						m_hp -= 5;
+						m_Damage = true;
+					}
 				}
 				break;
 			}
 	}
 		switch (b->m_type) {
 		case eType_Trapp4:
-			if (Trapp3* P1 = dynamic_cast<Trapp3*>(b)) {
+			if (Trapp4* P1 = dynamic_cast<Trapp4*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
-					m_hp -= 10;
+					if (m_Damage == false) {
+						m_hp -= 5;
+						m_Damage = true;
+					}
+				}
+				break;
+			}
+		}
+		switch (b->m_type) {
+		case eType_Bullet:
+			if (Bullet* P1 = dynamic_cast<Bullet*>(b)) {
+				if (ObjectBase::CollisionRect(this, P1)) {
+					P1->Kill();
+					m_hp -= 1;
 
 				}
 				break;
