@@ -7,5 +7,6 @@ public:
     CVector2D m_pos;
 public:
     Timer(const CVector2D& pos);
+    void Update();
     void Draw();
 };

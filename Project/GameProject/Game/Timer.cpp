@@ -5,23 +5,27 @@ Timer::Timer(const CVector2D& pos) :Task(eType_Timer, (int)TaskPrio::Timer)
     m_pos = pos;
 	m_img.Load("Image/Timer.png");
 }
-
-void Timer::Draw()
-{
+void Timer::Update() {
     int score = 60;
     while (score >= 0) {
         score--;
-        if(score < 0) {
+        if (score < 0) {
+            for (int i = 0; i < 2; i++, score /= 10) {
+                int s = score % 10;
+                m_img.SetRect(500 * s, 0, 500 * s + 500, 500);
+                m_img.SetSize(100, 100);
+                m_img.SetPos(930 - 60 * i, 150);
+                m_img.Draw();
+            }
             score = 60;
             break;
         }
     }
+}
+void Timer::Draw()
+{
+
+    
    
-    for (int i = 0; i < 2; i++, score /= 10) {
-        int s = score % 10;
-        m_img.SetRect(500 * s, 0, 500 * s + 500, 500);
-        m_img.SetSize(100, 100);
-        m_img.SetPos(930 - 60 * i, 150);
-        m_img.Draw();
-    }
+
 }

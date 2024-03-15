@@ -32,7 +32,8 @@ private:
 	float waitcnt;
 	//ˆÚ“®§Œä
 	int m_m;
-
+	int cnt;
+	bool m_Damage;
 	int m_bcnt;
 
 public:

@@ -25,6 +25,13 @@ void Trapp3::Update() {
 	if (m_pos.x < m_scroll.x -600) {
 		Kill();
 	}
+	if (m_Damage == true) {
+		cnt++;
+		if (cnt > 60) {
+			m_Damage = false;
+			cnt = 0;
+		}
+	}
 	//const int move_speed = 5;
 	//m_pos.x -= move_speed;
 	//m_vec.y += GRAVITY;
@@ -40,6 +47,20 @@ void Trapp3::Draw() {
 		CVector4D(1, 0, 0, 0.5f));*/
 	//DrawRect();
 }
+void Trapp3::Collision(Task* b)
+{
+	switch (b->m_type) {
+	case eType_Player:
+		if (ObjectBase* P1 = dynamic_cast<ObjectBase*>(b)) {
+			if (m_Damage == false) {
+
+				m_Damage = true;
+			}
+			break;
+
+		}
+	}
+}
 //—Ž‚Æ‚µŒŠ
 Trapp4::Trapp4(const CVector3D& pos) :ObjectBase(eType_Trapp4) {
 	m_pos = pos;
@@ -51,6 +72,13 @@ Trapp4::Trapp4(const CVector3D& pos) :ObjectBase(eType_Trapp4) {
 void Trapp4::Update() {
 	if (m_pos.x < m_scroll.x - 600) {
 		Kill();
+	}
+	if (m_Damage == true) {
+		cnt++;
+		if (cnt > 60) {
+			m_Damage = false;
+			cnt = 0;
+		}
 	}
 	//const int move_speed = 5;
 	//m_pos.x -= move_speed;
@@ -65,4 +93,18 @@ void Trapp4::Draw() {
 		CVector2D(200, 100),
 		CVector4D(1, 0, 0, 0.5f));*/
 	//DrawRect();
+}
+void Trapp4::Collision(Task* b)
+{
+	switch (b->m_type) {
+	case eType_Player:
+		if (ObjectBase* P1 = dynamic_cast<ObjectBase*>(b)) {
+			if (m_Damage == false) {
+
+				m_Damage = true;
+			}
+			break;
+
+		}
+	}
 }
