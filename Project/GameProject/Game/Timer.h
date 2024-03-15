@@ -8,6 +8,5 @@ public:
     int score;
 public:
     Timer(const CVector2D& pos);
-    void Update();
     void Draw();
 };

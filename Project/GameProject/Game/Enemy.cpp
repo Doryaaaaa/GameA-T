@@ -23,7 +23,7 @@ Enemy::Enemy(const CVector3D&pos):ObjectBase(eType_Enemy) {
 	m_img.SetCenter(200,380);
 	m_is_ground = false;
 	m_rect = Rect3D(-200, -400,-400, 200, 0,0);
-	m_hpGeag=new EnemyHp(CVector2D(0, 100));
+	m_hpGeag=new EnemyHp(CVector2D(0, 50));
 	m_Damage = false;
 }
 
