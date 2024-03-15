@@ -12,5 +12,7 @@ public:
 	bool Trappflag;
 private:
 	CImage m_img;
+	int m_cnt;
+	int m_rcnt;
 };
 extern TexAnimData Trapp1_anim_data[];

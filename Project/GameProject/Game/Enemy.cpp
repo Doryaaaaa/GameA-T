@@ -117,11 +117,20 @@ void Enemy::Collision(Task* b)
 		case eType_Trapp3:
 			if (Trapp3* P1 = dynamic_cast<Trapp3*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
-					P1->Kill();
 					m_hp -= 10;
 
 				}
 				break;
 			}
 	}
+		switch (b->m_type) {
+		case eType_Trapp4:
+			if (Trapp3* P1 = dynamic_cast<Trapp3*>(b)) {
+				if (ObjectBase::CollisionRect(this, P1)) {
+					m_hp -= 10;
+
+				}
+				break;
+			}
+		}
 }
