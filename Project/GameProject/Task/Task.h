@@ -39,7 +39,7 @@ enum {
 //タスクの優先度
 enum class TaskPrio
 {
-    Game,
+    Game,      //呼び出し
     GameClear, //クリア画面
     GameOver,  //ゲームオーバー画面
     Title,     //タイトル
