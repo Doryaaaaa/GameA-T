@@ -35,12 +35,12 @@ Game::~Game()
 void Game::Update()
 {
     //敵死亡でゲームクリア
-    /*if (!Task::FindObject(eType_Enemy)) {
+    if (!Task::FindObject(eType_Enemy)) {
         Kill();
         (new GameClear());
     }
     //敵画面外でゲームオーバー
-    if (!Task::FindObject(eType_Enemy)) {
+    /*if (!Task::FindObject(eType_Enemy)) {
         if () {
             (new GameOver());
         }

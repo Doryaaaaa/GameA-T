@@ -92,6 +92,8 @@ void Init(void)
 	ADD_RESOURCE("Trapp3", CImage::CreateImage("Image/Trapp1.png", Trapp3_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp4", CImage::CreateImage("Image/Trapp4.png"));
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
+	ADD_RESOURCE("GameClear", CImage::CreateImage("Image/GameClear.png"));
+	ADD_RESOURCE("GameOver", CImage::CreateImage("Image/GameOver.png"));
 
 
 	//-----------------------------------------------------
