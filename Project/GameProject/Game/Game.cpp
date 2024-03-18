@@ -26,17 +26,13 @@ Game::Game() :Task(eType_Game, (int)TaskPrio::Game)
 }
 Game::~Game()
 {
-    //全てのオブジェクトを破棄
-    Kill();
-    //タイトルシーンへ
-    (new Title());
 }
 
 void Game::Update()
 {
     //敵死亡でゲームクリア
-    if (!Task::FindObject(eType_Enemy)&&!Task::FindObject(eType_Title)) {
-        Kill();
+    if (!TaskManager::FindObject(eType_Enemy)) {
+        TaskManager::KillAll();
         (new GameClear());
     }
     //敵画面外でゲームオーバー

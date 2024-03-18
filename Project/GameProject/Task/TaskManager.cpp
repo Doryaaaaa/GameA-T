@@ -114,6 +114,40 @@ const std::list<Task*>& TaskManager::GetObjctList()
 	return m_objectList;
 }
 
+Task* TaskManager::FindObject(int type)
+{
+	//リストをループ
+	for (auto& b : m_taskList) {
+		//対象のオブジェクトを見つけたら、それを返す
+		if (b->m_type == type)
+			return b;
+	}
+	return nullptr;
+
+}
+
+std::list<Task*> TaskManager::FindObjects(int type)
+{
+	std::list<Task*> ret;
+	//リストをループ
+	for (auto& b : m_taskList) {
+		//対象のオブジェクトを見つけたら、返却用リストに追加
+		if (b->m_type == type)
+			ret.push_back(b);
+	}
+	return ret;
+}
+
+//全て削除
+void TaskManager::KillAll()
+{
+	for (auto& b : m_taskList) {
+		b->Kill();
+	}
+}
+
+
+
 //リスト内の全タスクの更新処理を呼び出す
 void TaskManager::UpDate()
 {
