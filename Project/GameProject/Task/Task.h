@@ -65,7 +65,7 @@ public:
     int m_prio;
     //同じ優先度内の処理順番
     int m_sortOrder;
-    //
+    //影のサイズ
     int m_ShadowSize;
     //
     int m_ShadowCenter;
