@@ -9,6 +9,8 @@ class TaskManager;
 enum {
     eType_Game,
     eType_Field,
+    eType_GameClear,
+    eType_GameOver,
     eType_Title,
     eTyp_ShadowManager,
     eType_Score,
@@ -37,6 +39,8 @@ enum {
 enum class TaskPrio
 {
     Game,
+    GameClear, //クリア画面
+    GameOver,  //ゲームオーバー画面
     Title,     //タイトル
     Field,     //フィールド
     Shadow,    //オブジェクトの影
