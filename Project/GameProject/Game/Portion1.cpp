@@ -9,9 +9,9 @@ Portion1Manager::Portion1Manager() : ObjectBase(eType_Portion1Manager)
 void Portion1Manager::Update()
 {
 	//アイテムが画面外（左）にいったら消す
-		if (m_pos.x < m_scroll.x - 600) {
+		/*if (m_pos.x < m_scroll.x - 600) {
 			Kill();
-		}
+		}*/
 	m_cnt--;
 	//アイテム出現
 	if (m_cnt <= 0) {
