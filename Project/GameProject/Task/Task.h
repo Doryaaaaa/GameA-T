@@ -52,6 +52,7 @@ class Task
     friend TaskManager;
 
 public:
+    static std::list<Task*> m_list;
     //オブジェクトの種類
     int m_type;
     //タスクの優先度
@@ -129,6 +130,19 @@ public:
     /// </summary>
     /// <returns>tureならば表示する</returns>
     bool IsShadow() const;
+    /// <summary>
+/// リスト内からオブジェクトを探索
+/// </summary>
+/// <param name="type">種類</param>
+/// <returns>最初に見つけたオブジェクト</returns>
+    static Task* FindObject(int type);
+    /// <summary>
+    /// リスト内からオブジェクトを探索
+    /// </summary>
+    /// <param name="type">種類</param>
+    /// <returns>該当種類のオブジェクトのリスト</returns>
+    static std::list<Task*> FindObjects(int type);
+
 
     //タスクを消去
     void Kill();
