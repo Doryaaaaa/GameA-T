@@ -1,5 +1,7 @@
 #include "Timer.h"
 #include"Task/Task.h"
+#include"Task/TaskManager.h"
+#include "Game/GameClear.h"
 Timer::Timer(const CVector2D& pos) :Task(eType_Timer, (int)TaskPrio::Timer)
 {
     m_pos = pos;
@@ -16,5 +18,9 @@ void Timer::Draw()
         m_img.SetSize(100, 100);
         m_img.SetPos(960 - 60 * i, 150);
         m_img.Draw();
+        if (score<0) {
+            TaskManager::KillAll();
+            (new GameOver());
+        }
     }
 }

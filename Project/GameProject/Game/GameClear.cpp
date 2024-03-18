@@ -47,7 +47,7 @@ GameOver::~GameOver()
 void  GameOver::Update()
 {
     //ボタンAでタイトル破棄
-    if (PUSH(CInput::eButton1)) {
+    if (PUSH(CInput::eButton2)) {
         Kill();
     }
 }

@@ -4,6 +4,7 @@
 #include"Trapp3.h"
 #include"Task/Task.h"
 #include"Task/TaskManager.h"
+#include "Game/GameClear.h"
 
 TexAnim stand_by_anim[] = {
 	{0,6},
@@ -27,7 +28,6 @@ Enemy::Enemy(const CVector3D&pos, bool flip):ObjectBase(eType_Enemy) {
 	m_hpGeag=new EnemyHp(CVector2D(0, 50));
 	m_Damage = false;
 	m_flip = flip;
-	//
 	m_isShadow = true;
 	m_ShadowSize = 200;
 	m_ShadowCenter = 100;
@@ -35,6 +35,7 @@ Enemy::Enemy(const CVector3D&pos, bool flip):ObjectBase(eType_Enemy) {
 
 
 void Enemy::Update() {
+	
 	m_hpGeag->hp = m_hp;
 	const int move_speed = 4;
 	const int move_Scrollspeed = 15;
@@ -157,7 +158,7 @@ void Enemy::Collision(Task* b)
 			if (Bullet* P1 = dynamic_cast<Bullet*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
 					P1->Kill();
-					m_hp -= 1000;
+					m_hp -= 1;
 
 				}
 				break;

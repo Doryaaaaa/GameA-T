@@ -35,7 +35,7 @@ void Portion1Manager::Update()
 		}
 
 		//X²‚Í2000`2500‚ÌŠÔAY²‚Í1000‚ÌŠÔ,Z²‚Í-380`0‚ÌŠÔ‚Åƒ‰ƒ“ƒ_ƒ€
-		(new Portion1(CVector3D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f),1000, Utility::Rand(-380.0f,0.0f))));
+		//(new Portion1(CVector3D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f),1000, Utility::Rand(-380.0f,0.0f))));
 
 		//Ÿ‚ÌoŒ»ŠÔ
 		m_cnt = Utility::Rand(60, 180);
