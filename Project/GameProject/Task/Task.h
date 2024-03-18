@@ -9,8 +9,6 @@ class TaskManager;
 enum {
     eType_Game,
     eType_Field,
-    eType_GameClear,
-    eType_GameOver,
     eType_Title,
     eTyp_ShadowManager,
     eType_Score,
@@ -35,13 +33,13 @@ enum {
     eType_Trapp2Manager,
     eType_Trapp3,
     eType_Trapp4,
+    eType_GameClear,
+    eType_GameOver,
 };
 //タスクの優先度
 enum class TaskPrio
 {
     Game,
-    GameClear, //クリア画面
-    GameOver,  //ゲームオーバー画面
     Title,     //タイトル
     Field,     //フィールド
     Shadow,    //オブジェクトの影
@@ -51,13 +49,14 @@ enum class TaskPrio
     TrappManager,   //全てを呼び出す
 
     UI,        //画面に表示するHUDなどのUI
+    GameClear, //クリア画面
+    GameOver,  //ゲームオーバー画面
 };
 class Task
 {
     friend TaskManager;
 
 public:
-    static std::list<Task*> m_list;
     //オブジェクトの種類
     int m_type;
     //タスクの優先度
@@ -135,18 +134,6 @@ public:
     /// </summary>
     /// <returns>tureならば表示する</returns>
     bool IsShadow() const;
-    /// <summary>
-/// リスト内からオブジェクトを探索
-/// </summary>
-/// <param name="type">種類</param>
-/// <returns>最初に見つけたオブジェクト</returns>
-    static Task* FindObject(int type);
-    /// <summary>
-    /// リスト内からオブジェクトを探索
-    /// </summary>
-    /// <param name="type">種類</param>
-    /// <returns>該当種類のオブジェクトのリスト</returns>
-    static std::list<Task*> FindObjects(int type);
 
 
     //タスクを消去

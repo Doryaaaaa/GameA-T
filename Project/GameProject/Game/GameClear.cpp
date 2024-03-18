@@ -11,15 +11,15 @@ m_GameClear_text("C:\\Windows\\Fonts\\msgothic.ttc", 64)
 }
 GameClear::~GameClear()
 {
-    //全てのオブジェクトを破棄
+    //オブジェクトを破棄
     IsKill();
     //タイトルシーンへ
     new Title();
 }
 void  GameClear::Update()
 {
-    //ボタンAでタイトル破棄
-    if (PUSH(CInput::eButton1)) {
+    //ボタンXで破棄
+    if (PUSH(CInput::eButton2)) {
         Kill();
     }
 }
