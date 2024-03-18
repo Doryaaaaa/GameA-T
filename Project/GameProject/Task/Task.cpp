@@ -1,6 +1,7 @@
 #include"Task.h"
 #include"TaskManager.h"
 //#include"Base.h"
+std::list<Task*> Task::m_list;
 Task::Task(int type, int prio)
     :m_type(type)
     , m_prio(prio)
@@ -86,6 +87,30 @@ void Task::SetShadow(bool shadw)
 bool Task::IsShadow() const
 {
     return m_isShadow;
+}
+
+Task* Task::FindObject(int type)
+{
+    //リストをループ
+    for (auto& b : m_list) {
+        //対象のオブジェクトを見つけたら、それを返す
+        if (b->m_type == type)
+            return b;
+    }
+    return nullptr;
+
+}
+
+std::list<Task*> Task::FindObjects(int type)
+{
+    std::list<Task*> ret;
+    //リストをループ
+    for (auto& b : m_list) {
+        //対象のオブジェクトを見つけたら、返却用リストに追加
+        if (b->m_type == type)
+            ret.push_back(b);
+    }
+    return ret;
 }
 
 //タスクを消去
