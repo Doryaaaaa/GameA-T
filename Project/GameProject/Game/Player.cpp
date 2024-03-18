@@ -5,6 +5,7 @@
 #include "Trapp3.h"
 #include "Task/TaskManager.h"
 #include "Task/Task.h"
+#include"Enemy.h"
 
 TexAnim bullet_by_anim[] = {
     {0,6},
@@ -255,7 +256,7 @@ void Player::Draw() {
 
 void Player::Collision(Task* b)
 {
-   switch (b->m_type) {
+    switch (b->m_type) {
     case eType_Field:
         //Field型へキャスト、型変換出来たら
         if (Field* f = dynamic_cast<Field*>(b)) {
@@ -269,22 +270,22 @@ void Player::Collision(Task* b)
                 m_is_ground = true;
             }
         }
-   }
-   switch (b->m_type) {
+    }
+    switch (b->m_type) {
 
     case eType_Portion1:
-       //Portion1Manager型へキャスト、型変換出来たら
-       if (Portion1* P1 = dynamic_cast<Portion1*>(b)) {
-           //プレイヤーが加速ポーションと当たったら
-           if (ObjectBase::CollisionRect(this, P1)) {
-               //アイテムが消える
-               P1->Kill();
-               //加速
-               m_speed = 1;
-               //効果時間
-               waitcnt = 20;
-           }
-       }
+        //Portion1Manager型へキャスト、型変換出来たら
+        if (Portion1* P1 = dynamic_cast<Portion1*>(b)) {
+            //プレイヤーが加速ポーションと当たったら
+            if (ObjectBase::CollisionRect(this, P1)) {
+                //アイテムが消える
+                P1->Kill();
+                //加速
+                m_speed = 1;
+                //効果時間
+                waitcnt = 20;
+            }
+        }
 
     case eType_Trapp3:
         //Trapp3型へキャスト、型変換出来たら
@@ -293,18 +294,18 @@ void Player::Collision(Task* b)
             if (ObjectBase::CollisionRect(this, T3)) {
                 //ジャンプ中なら
                 if (!m_is_ground) {
-                   
+
                 }
                 //ダメージアニメーション
                 m_img.ChangeAnimation(1);
                 if (m_Damage == false) {
 
-           
-                //減速
-                m_speed = -1;
-                //効果時間
-                waitcnt = 20;
-                m_Damage = true;
+
+                    //減速
+                    m_speed = -1;
+                    //効果時間
+                    waitcnt = 20;
+                    m_Damage = true;
                 }
                 //アニメーションが終了したら
                 if (m_img.CheckAnimationEnd()) {
@@ -322,18 +323,18 @@ void Player::Collision(Task* b)
                 if (!m_is_ground) {
 
                 }
-              
 
 
-                    //ダメージアニメーション
-                    m_img.ChangeAnimation(1);
-                    if (m_Damage == false) {
+
+                //ダメージアニメーション
+                m_img.ChangeAnimation(1);
+                if (m_Damage == false) {
                     //減速
                     m_speed = -1;
                     //効果時間
                     waitcnt = 20;
                     m_Damage = true;
-            
+
                 }
                 //アニメーションが終了したら
                 if (m_img.CheckAnimationEnd()) {
@@ -341,9 +342,30 @@ void Player::Collision(Task* b)
                 }
             }
         }
-
-
-   }
-
+   /* case eType_Enemywall:
+        if (Enemywall* P1 = dynamic_cast<Enemywall*>(b)) {
+            if (ObjectBase::CollisionRect(this, P1)) {
+                m_speed = -6;
+                //効果時間
+                waitcnt = 20;
+                m_img.ChangeAnimation(1);
+            }
+            if (m_img.CheckAnimationEnd()) {
+                m_img.ChangeAnimation(0);
+            }
+        }*/
+     case eType_Enemy:
+         if (Enemy* P1 = dynamic_cast<Enemy*>(b)) {
+             if (ObjectBase::CollisionRect(this, P1)) {
+                 m_speed = -10;
+                 //効果時間
+                 waitcnt = 20;
+                 m_img.ChangeAnimation(1);
+             }
+             if (m_img.CheckAnimationEnd()) {
+                 m_img.ChangeAnimation(0);
+             }
+         }
+    }
 }
 
