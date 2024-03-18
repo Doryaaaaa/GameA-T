@@ -50,7 +50,8 @@ enum class TaskPrio
     TrappManager,   //‘S‚Ä‚ğŒÄ‚Ño‚·
 
     UI,        //‰æ–Ê‚É•\¦‚·‚éHUD‚È‚Ç‚ÌUI
-
+    GameClear,
+    GameOver,
 };
 class Task
 {
