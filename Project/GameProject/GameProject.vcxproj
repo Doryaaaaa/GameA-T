@@ -16,6 +16,7 @@
     <ClCompile Include="Game\Field.cpp" />
     <ClCompile Include="Game\EnemyHp.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameClear.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\Portion1.cpp" />
     <ClCompile Include="Game\Portion2.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="Game\Field.h" />
     <ClInclude Include="Game\EnemyHp.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameClear.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\Portion1.h" />
     <ClInclude Include="Game\Portion2.h" />

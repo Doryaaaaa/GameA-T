@@ -8,6 +8,10 @@ Portion1Manager::Portion1Manager() : ObjectBase(eType_Portion1Manager)
 
 void Portion1Manager::Update()
 {
+	//アイテムが画面外（左）にいったら消す
+		if (m_pos.x < m_scroll.x - 600) {
+			Kill();
+		}
 	m_cnt--;
 	//アイテム出現
 	if (m_cnt <= 0) {
@@ -15,15 +19,18 @@ void Portion1Manager::Update()
 		m_rcnt= Utility::Rand(0,300);
 
 		if (m_rcnt < 100) {
+			//X軸はスクロール値＋2000の間、Y軸は1000の間,Z軸は-310～0の間でランダム
 			//アイテム出現　上
 			(new Portion1(CVector3D(m_scroll.x+2000,1000,-310)));
 		}
 		else if (m_rcnt < 200) {
+			//X軸はスクロール値＋2000の間、Y軸は1000の間,Z軸は-170～0の間でランダム
 			//アイテム出現　真ん中
 			(new Portion1(CVector3D(m_scroll.x + 2000, 1000, -170)));
 		}
 		else {
 			//アイテム出現 下
+			//X軸はスクロール値＋2000の間、Y軸は1000の間,Z軸は-30～0の間でランダム
 			(new Portion1(CVector3D(m_scroll.x + 2000, 1000, -30)));
 		}
 
@@ -33,10 +40,7 @@ void Portion1Manager::Update()
 		//次の出現時間
 		m_cnt = Utility::Rand(60, 180);
 
-		//アイテムが画面外（左）にいったら消す　※未完成
-		if (m_scroll.x < m_scroll.x - 200) {
-			Kill();
-		}
+		
 
 	}
 }

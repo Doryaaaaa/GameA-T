@@ -8,6 +8,9 @@
 #include"Game/Portion1.h"
 #include"Game/Trapp1Manager.h"
 #include"Game/Timer.h"
+#include "Game/GameClear.h"
+#include"Task/TaskManager.h"
+
 
 Game::Game() :Task(eType_Game, (int)TaskPrio::Game)
 {
@@ -31,4 +34,16 @@ Game::~Game()
 
 void Game::Update()
 {
+    //敵死亡でゲームクリア
+    /*if (!Task::FindObject(eType_Enemy)) {
+        Kill();
+        (new GameClear());
+    }
+    //敵画面外でゲームオーバー
+    if (!Task::FindObject(eType_Enemy)) {
+        if () {
+            (new GameOver());
+        }
+        
+    }*/
 }
