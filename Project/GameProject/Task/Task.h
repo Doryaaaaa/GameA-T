@@ -7,7 +7,9 @@ class TaskManager;
 /// オブジェクトの種類
 /// </summary>
 enum {
+    eType_Game,
     eType_Field,
+    eType_Title,
     eTyp_ShadowManager,
     eType_Score,
     eType_Portion1,
@@ -34,6 +36,8 @@ enum {
 //タスクの優先度
 enum class TaskPrio
 {
+    Game,
+    Title,     //タイトル
     Field,     //フィールド
     Shadow,    //オブジェクトの影
     EnemyHp,   //エネミーのHPバー
