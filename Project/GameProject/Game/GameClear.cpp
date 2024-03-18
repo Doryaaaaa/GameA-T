@@ -11,7 +11,6 @@ m_GameClear_text("C:\\Windows\\Fonts\\msgothic.ttc", 64)
 }
 GameClear::~GameClear()
 {
-    //オブジェクトを破棄
     IsKill();
     //タイトルシーンへ
     new Title();

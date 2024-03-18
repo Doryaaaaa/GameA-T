@@ -9,6 +9,8 @@ class TaskManager;
 enum {
     eType_Game,
     eType_Field,
+    eType_GameClear,
+    eType_GameOver,
     eType_Title,
     eTyp_ShadowManager,
     eType_Score,
@@ -33,13 +35,12 @@ enum {
     eType_Trapp2Manager,
     eType_Trapp3,
     eType_Trapp4,
-    eType_GameClear,
-    eType_GameOver,
+
 };
 //タスクの優先度
 enum class TaskPrio
 {
-    Game,
+    Game,      //呼び出し
     Title,     //タイトル
     Field,     //フィールド
     Shadow,    //オブジェクトの影
@@ -49,14 +50,14 @@ enum class TaskPrio
     TrappManager,   //全てを呼び出す
 
     UI,        //画面に表示するHUDなどのUI
-    GameClear, //クリア画面
-    GameOver,  //ゲームオーバー画面
+
 };
 class Task
 {
     friend TaskManager;
 
 public:
+
     //オブジェクトの種類
     int m_type;
     //タスクの優先度
@@ -134,6 +135,7 @@ public:
     /// </summary>
     /// <returns>tureならば表示する</returns>
     bool IsShadow() const;
+
 
 
     //タスクを消去
