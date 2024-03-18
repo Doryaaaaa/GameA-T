@@ -9,9 +9,9 @@ Portion1Manager::Portion1Manager() : ObjectBase(eType_Portion1Manager)
 void Portion1Manager::Update()
 {
 	//アイテムが画面外（左）にいったら消す
-		if (m_pos.x < m_scroll.x - 600) {
+		/*if (m_pos.x < m_scroll.x - 600) {
 			Kill();
-		}
+		}*/
 	m_cnt--;
 	//アイテム出現
 	if (m_cnt <= 0) {
@@ -35,7 +35,7 @@ void Portion1Manager::Update()
 		}
 
 		//X軸は2000～2500の間、Y軸は1000の間,Z軸は-380～0の間でランダム
-		//(new Portion1(CVector3D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f),1000, Utility::Rand(-380.0f,0.0f))));
+		(new Portion1(CVector3D(m_scroll.x + Utility::Rand(2000.0f, 2500.0f),1000, Utility::Rand(-380.0f,0.0f))));
 
 		//次の出現時間
 		m_cnt = Utility::Rand(60, 180);

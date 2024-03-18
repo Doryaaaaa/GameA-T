@@ -35,7 +35,7 @@ Game::~Game()
 void Game::Update()
 {
     //“G€–S‚ÅƒQ[ƒ€ƒNƒŠƒA
-    if (!Task::FindObject(eType_Enemy)) {
+    if (!Task::FindObject(eType_Enemy)&&!Task::FindObject(eType_Title)) {
         Kill();
         (new GameClear());
     }
