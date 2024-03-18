@@ -17,6 +17,7 @@ enum {
     eType_Player,
     eType_Enemy,
     eType_EnemyHp,
+    eType_Enemywall,
     eType_Bullet,
     eType_Goal,
     eType_Player_Attack,

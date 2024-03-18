@@ -21,3 +21,16 @@ private:
 	bool m_flip;
 };
 extern TexAnimData enemy_anim_data[];
+/*class Enemywall :public ObjectBase {
+public:
+	Enemywall(const CVector3D& pos);
+
+	void Update();
+	void Draw();
+	//void Collision(Task* b);
+
+private:
+	CImage m_img;
+	int m_cnt;
+	int cnt;
+};*/

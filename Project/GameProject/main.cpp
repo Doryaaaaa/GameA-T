@@ -90,7 +90,7 @@ void Init(void)
 	ADD_RESOURCE("Trapp3", CImage::CreateImage("Image/Trapp1.png", Trapp3_anim_data, 500, 500));
 	ADD_RESOURCE("Trapp4", CImage::CreateImage("Image/Trapp4.png"));
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
-
+	//ADD_RESOURCE("Enemywall", CImage::CreateImage("Image/Enemy(‰¼).png"));
 
 	//-----------------------------------------------------
 	//‰Šú‰»‚Ì–½—ß‚ğ‘‚­
@@ -100,12 +100,11 @@ new Field();
 new Player(CVector3D(1200, 2800, -150));
 new Portion1Manager();
 new Trapp1Manager();
-//new Enemy(CVector3D(1200,0,0));
 //‰e•`‰æƒNƒ‰ƒX‚Ì¶¬
 new ShadowManager();
 (new Enemy(CVector3D(2200,2800,0),true));
 new Timer(CVector2D());
-
+//new Enemywall(CVector3D(2200, 1000, 0));
 
 
 

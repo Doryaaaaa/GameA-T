@@ -94,8 +94,6 @@ void Enemy::Update() {
 		Kill();
 
 	}
-
-	m_vec.y += GRAVITY;
 	m_pos += m_vec;
 	m_img.UpdateAnimation();
 
@@ -166,3 +164,41 @@ void Enemy::Collision(Task* b)
 			}
 		}
 }
+/*Enemywall::Enemywall(const CVector3D& pos) :ObjectBase(eType_Enemywall) {
+	m_img = COPY_RESOURCE("Enemywall", CImage);
+	m_pos = pos;
+	m_img.SetSize(0, 0);
+	m_img.SetCenter(200, 380);
+	m_rect = Rect3D(10, 1000, 1000, -10, -1000, -1000);
+}
+void Enemywall::Update() {
+	const int move_speed = 4;
+	const int move_Scrollspeed = 15;
+	m_pos.x += move_Scrollspeed;
+	m_pos += m_vec;
+	//m_vec.y += GRAVITY;
+}
+void Enemywall::Draw() {
+	m_img.SetPos(GetScreenPos(m_pos));
+	m_img.Draw();
+		/*Utility::DrawQuad(
+			GetScreenPos(m_pos),
+			//‹éŒ`Ý’è
+			CVector2D(200, 16),
+			CVector4D(1, 0, 0, 0.5f));
+			DrawRect();
+}
+void Enemywall::Collision(Task* b)
+{
+	switch (b->m_type) {
+	case eType_Player:
+		if (Player* P1 = dynamic_cast<Player*>(b)) {
+			if (ObjectBase::CollisionRect(this, P1)) {
+				m_speed = -1;
+				//Œø‰ÊŽžŠÔ
+				waitcnt = 20;
+			}
+			break;
+		}
+	}
+}*/
