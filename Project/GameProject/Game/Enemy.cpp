@@ -70,10 +70,10 @@ void Enemy::Update() {
 		m_cnt =-180+rand()% 360;
 	}*/
 	
-	if (m_cnt==180) {
+	if (m_cnt==60) {
 		cnt = 1 + rand() % 3;
 	}
-	if (m_cnt > 200) {
+	if (m_cnt > 80) {
 		m_cnt = 0;
 	}
 	switch (cnt)
