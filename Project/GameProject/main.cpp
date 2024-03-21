@@ -2,6 +2,7 @@
 #include"Task/TaskManager.h"
 #include"Task/ShadowManager.h"
 #include"Game/Title.h"
+#include"Game/Explanation.h"
 #include "Game/Player.h"
 #include"Game/Enemy.h"
 #include"Game/EnemyHp.h"
@@ -78,6 +79,7 @@ void Init(void)
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
 	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(‰¼).png"));
 	ADD_RESOURCE("Title", CImage::CreateImage("Image/Title(‰¼).png"));
+	ADD_RESOURCE("Explanation", CImage::CreateImage("Image/Explanation.png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	//ADD_RESOURCE("Effect_Slash", CImage::CreateImage("Image/Effect_Slash.png", effect_slash_anim_data, 128, 128));
 	//ADD_RESOURCE("Effect_Smoke", CImage::CreateImage("Image/Effect_Smoke.png", effect_smoke_anim_data, 128, 128));
@@ -95,7 +97,7 @@ void Init(void)
 	ADD_RESOURCE("GameClear", CImage::CreateImage("Image/GameClear.png"));
 	ADD_RESOURCE("GameOver", CImage::CreateImage("Image/GameOver.png"));
 
-
+	//Explanation
 	//-----------------------------------------------------
 	//‰Šú‰»‚Ì–½—ß‚ğ‘‚­
 	//ƒQ[ƒ€‹N“®‚Éˆê“x‚¾‚¯ŒÄ‚Î‚ê‚é

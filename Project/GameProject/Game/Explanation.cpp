@@ -1,22 +1,20 @@
-#include"Title.h"
+#include"Explanation.h"
 #include"Task/Task.h"
 #include"Game/Game.h"
-#include"Game/Explanation.h"
 
-Title::Title() :Task(eType_Title, (int)TaskPrio::Title),
+Explanation::Explanation() :Task(eType_Explanation, (int)TaskPrio::Explanation),
 m_title_text("C:\\Windows\\Fonts\\msgothic.ttc", 64)
 {
-    m_img = COPY_RESOURCE("Title", CImage);
-
+    m_img = COPY_RESOURCE("Explanation", CImage);
 }
-Title::~Title()
+Explanation::~Explanation()
 {
     //全てのオブジェクトを破棄
     IsKill();
     //ゲームシーンへ
-    new Explanation();
+    new Game();
 }
-void Title::Update()
+void Explanation::Update()
 {
     //ボタンAでタイトル破棄
     if (PUSH(CInput::eButton1)) {
@@ -24,7 +22,7 @@ void Title::Update()
     }
 }
 
-void Title::Draw()
+void Explanation::Draw()
 {
     m_img.Draw();
 }

@@ -12,6 +12,7 @@ enum {
     eType_GameClear,
     eType_GameOver,
     eType_Title,
+    eType_Explanation,
     eTyp_ShadowManager,
     eType_Score,
     eType_Portion1,
@@ -40,13 +41,14 @@ enum {
 //タスクの優先度
 enum class TaskPrio
 {
-    Game,      //呼び出し
-    Title,     //タイトル
-    Field,     //フィールド
-    Shadow,    //オブジェクトの影
-    EnemyHp,   //エネミーのHPバー
-    Timer,     //タイマー
-    Object,    //ゲーム中のオブジェクト
+    Game,        //呼び出し
+    Title,       //タイトル
+    Field,       //フィールド
+    Explanation, //操作説明
+    Shadow,      //オブジェクトの影
+    EnemyHp,     //エネミーのHPバー
+    Timer,       //タイマー
+    Object,      //ゲーム中のオブジェクト
     TrappManager,   //全てを呼び出す
 
     UI,        //画面に表示するHUDなどのUI
