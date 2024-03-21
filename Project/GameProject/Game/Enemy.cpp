@@ -6,22 +6,33 @@
 #include"Task/TaskManager.h"
 #include "Game/GameClear.h"
 
-TexAnim stand_by_anim[] = {
+TexAnim enemy_stand_by_anim[] = {
 	{0,6},
-    {1,6},
-    {2,6},
-    {3,6},
 };
-
+TexAnim enemy_run_by_anim[] = {
+	{8,6},
+	{9,6},
+	{10,6},
+	{11,6},
+};
+TexAnim enemy_down_by_anim[] = {
+	{16,6},
+	{17,6},
+	{18,6},
+	{19,6},
+};
 TexAnimData enemy_anim_data[] = {
-	{stand_by_anim,sizeof(stand_by_anim) / sizeof(stand_by_anim[0])}
+	 ANIMDATA(enemy_stand_by_anim),
+	 ANIMDATA(enemy_run_by_anim),
+	 ANIMDATA(enemy_down_by_anim),
+	
 };
 Enemy::Enemy(const CVector3D&pos, bool flip):ObjectBase(eType_Enemy) {
 	m_pos = pos;
 	m_hp = 100;
 	m_img = COPY_RESOURCE("Enemy", CImage);
 	m_img.SetSize(400, 400);
-	m_img.ChangeAnimation(0);
+	m_img.ChangeAnimation(1);
 	m_img.SetCenter(200,380);
 	m_is_ground = false;
 	m_rect = Rect3D(-200, -400,-400, 200, 0,0);
@@ -65,7 +76,6 @@ void Enemy::Update() {
 	if (m_cnt < 0&& m_pos.z > -390) {
 		m_pos.z -= move_speed;
 	}
-	
     if (m_cnt==0) {
 		m_cnt =-180+rand()% 360;
 	}*/
@@ -92,8 +102,8 @@ void Enemy::Update() {
 		m_hp -= 10;
 	}*/
 	if (m_hp <= 0) {
+		m_img.ChangeAnimation(2);
 		Kill();
-
 	}
 	m_pos += m_vec;
 	m_img.UpdateAnimation();
