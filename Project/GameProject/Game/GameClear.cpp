@@ -27,7 +27,7 @@ void  GameClear::Update()
 void  GameClear::Draw()
 {
     m_img.Draw();
-    m_GameClear_text.Draw(800, 800,1,0,0,"%d", Timer::Cscore);
+    m_GameClear_text.Draw(690, 650,1,0,0,"クリアタイム %d秒", Timer::Cscore);
 }
 
 
