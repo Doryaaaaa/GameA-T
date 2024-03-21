@@ -77,7 +77,7 @@ void Init(void)
 	ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy(‰¼).png", enemy_anim_data, 500, 500));
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
-	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field(‰¼).png"));
+	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field.png"));
 	ADD_RESOURCE("Title", CImage::CreateImage("Image/Title(‰¼).png"));
 	ADD_RESOURCE("Explanation", CImage::CreateImage("Image/Explanation.png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
