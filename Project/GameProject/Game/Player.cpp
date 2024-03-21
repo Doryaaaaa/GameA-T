@@ -30,7 +30,7 @@ Bullet::Bullet(const CVector3D& pos, int type, int attack_no) :ObjectBase(eType_
 }
 void Bullet::Update() {
     //弾のスピードと向き
-    const int move_speed = 100;
+    const int move_speed = 50;
     m_pos.x += move_speed;
     //スクロール値＋数値分の座標を超えたら消える
     if (m_pos.x> m_scroll.x+2500) {
@@ -197,9 +197,9 @@ void Player::Update() {
 
 
     //攻撃(マウス左ボタン)
-    if (PUSH(CInput::eMouseL)) {      
+    if (PUSH(CInput::eMouseL)) { 
         (new Bullet(CVector3D(m_pos.x, m_pos.y - 150, m_pos.z), eType_Bullet, m_attack_no));
-
+        
     }
 
 //ジャンプ(スペース)
