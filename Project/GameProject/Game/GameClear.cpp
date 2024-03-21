@@ -17,8 +17,8 @@ GameClear::~GameClear()
 }
 void  GameClear::Update()
 {
-    //ボタンXで破棄
-    if (PUSH(CInput::eButton2)) {
+    //ボタンZで破棄
+    if (PUSH(CInput::eButton1)) {
         Kill();
     }
 }
@@ -46,8 +46,8 @@ GameOver::~GameOver()
 }
 void  GameOver::Update()
 {
-    //ボタンAでタイトル破棄
-    if (PUSH(CInput::eButton2)) {
+    //ボタンZでタイトル破棄
+    if (PUSH(CInput::eButton1)) {
         Kill();
     }
 }
