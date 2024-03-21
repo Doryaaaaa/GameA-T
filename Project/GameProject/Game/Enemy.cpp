@@ -88,9 +88,9 @@ void Enemy::Update() {
 		m_pos.z = -340;
 		break;
 	}
-	if (PUSH(CInput::eButton1)) {
+	/*if (PUSH(CInput::eButton1)) {
 		m_hp -= 10;
-	}
+	}*/
 	if (m_hp <= 0) {
 		Kill();
 
