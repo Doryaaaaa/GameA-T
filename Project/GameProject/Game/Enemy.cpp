@@ -158,7 +158,7 @@ void Enemy::Collision(Task* b)
 			if (Bullet* P1 = dynamic_cast<Bullet*>(b)) {
 				if (ObjectBase::CollisionRect(this, P1)) {
 					P1->Kill();
-					m_hp -= 1;
+					m_hp -= 100;
 
 				}
 				break;

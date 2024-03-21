@@ -34,6 +34,7 @@ void Game::Update()
     if (!TaskManager::FindObject(eType_Enemy)) {
         TaskManager::KillAll();
         (new GameClear());
+        printf("\d",Timer::Cscore);
     }
     //敵画面外でゲームオーバー
     /*if (!Task::FindObject(eType_Enemy)) {
