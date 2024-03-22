@@ -78,7 +78,7 @@ void Init(void)
 	//ADD_RESOURCE("Sky", CImage::CreateImage("Image/Sky.png"));
 	//ADD_RESOURCE("Town", CImage::CreateImage("Image/Town.png"));
 	ADD_RESOURCE("Field", CImage::CreateImage("Image/Field.png"));
-	ADD_RESOURCE("Title", CImage::CreateImage("Image/Title(‰¼).png"));
+	ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("Explanation", CImage::CreateImage("Image/Explanation.png"));
 	//ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	//ADD_RESOURCE("Effect_Slash", CImage::CreateImage("Image/Effect_Slash.png", effect_slash_anim_data, 128, 128));
