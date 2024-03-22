@@ -193,7 +193,7 @@ void Player::Update() {
 
 
     //攻撃(マウス左ボタン)
-    if (PUSH(CInput::eMouseL)) { 
+    if (PUSH(CInput::eMouseL)&&m_is_ground) { 
         (new Bullet(CVector3D(m_pos.x, m_pos.y - 150, m_pos.z), eType_Bullet, m_attack_no));
         
     }
