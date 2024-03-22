@@ -19,7 +19,7 @@ TexAnimData bullet_anim_data[] = {
 
 Bullet::Bullet(const CVector3D& pos, int type, int attack_no) :ObjectBase(eType_Bullet) {
     m_img = COPY_RESOURCE("Bullet", CImage);
-    m_img.ChangeAnimation(0);
+    //m_img.ChangeAnimation(0);
     m_pos = pos;
     m_img.SetSize(50, 50);
     m_img.SetCenter(25, 25);
@@ -52,24 +52,20 @@ TexAnim run_by_anim[] = {
     {1,6},
     {2,6},
     {3,6},
-    {4,6},
-    {5,6},
+   
 };
 
 TexAnim damage_by_anim[] = {
-    {20,6},
-    {21,6}, 
-    {20,6},
-    {21,6},
+    {10,6},
 };
 
 TexAnim jumpup_by_anim[] = {
-    {40,6},
+    {20,6},
 
 };
 
 TexAnim jumpdown_by_anim[] = {
-    {41,6},
+    {21,6},
 
 };
 
@@ -217,15 +213,12 @@ void Player::Update() {
         m_img.ChangeAnimation(0);
     }
     else {
-        if (m_vec.y < 0)
+        if (m_vec.y < 0) {
             //上昇アニメーション
-            m_img.ChangeAnimation(2, false);
-        else
-            //下降アニメーション
-            m_img.ChangeAnimation(3, true);
+            m_img.ChangeAnimation(2, true);
+        }
+
     }
-    
-    
     //落ちていたら落下中状態へ移行
     if (m_is_ground && m_vec.y > GRAVITY * 4)
         m_is_ground = false;
